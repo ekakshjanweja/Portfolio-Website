@@ -193,72 +193,68 @@ class _HomePageState extends State<HomePage>
             top: currentWidth > 600 ? currentHeight * 0.2 : currentHeight * 0.2,
             right:
                 currentWidth > 600 ? currentWidth * 0.25 : currentWidth * 0.05,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                //Image
+            child: Image.asset(
+              profileImage,
+              scale: currentWidth > 1400 ? 3.5 : 8,
+            ),
+          ),
 
-                Image.asset(
-                  profileImage,
-                  scale: currentWidth > 1400 ? 3.5 : 8,
-                ),
+          //Download CV
 
-                SizedBox(
+          Positioned(
+            bottom: currentHeight * 0.15,
+            right:
+                currentWidth > 600 ? currentWidth * 0.45 : currentWidth * 0.43,
+            left:
+                currentWidth > 600 ? currentWidth * 0.45 : currentWidth * 0.43,
+            child: GestureDetector(
+              onTap: () async {
+                String cv =
+                    'https://drive.google.com/file/d/1aJP1HjiBOuubdRsUqyS1NNvvkJOSypk1/view?usp=sharing';
+                if (await launchUrlString(cv)) {
+                } else {
+                  throw 'Could not launch $cv';
+                }
+              },
+              child: MouseRegion(
+                onEnter: (e) {
+                  setState(() {
+                    buttonHover = true;
+                  });
+                },
+                onExit: (e) {
+                  setState(() {
+                    buttonHover = false;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: currentWidth * 0.15,
                   height: currentHeight * 0.1,
-                ),
-
-                //Download CV
-
-                GestureDetector(
-                  onTap: () async {
-                    String cv =
-                        'https://drive.google.com/file/d/1aJP1HjiBOuubdRsUqyS1NNvvkJOSypk1/view?usp=sharing';
-                    if (await launchUrlString(cv)) {
-                    } else {
-                      throw 'Could not launch $cv';
-                    }
-                  },
-                  child: MouseRegion(
-                    onEnter: (e) {
-                      setState(() {
-                        buttonHover = true;
-                      });
-                    },
-                    onExit: (e) {
-                      setState(() {
-                        buttonHover = false;
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: currentWidth * 0.15,
-                      height: currentHeight * 0.1,
-                      decoration: BoxDecoration(
-                        color: buttonHover
-                            ? AppColors().returnRandomColor(widget.randomNumber)
-                            : isDarkModeOn
-                                ? Colors.white
-                                : Colors.black,
-                        borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.height * 0.02,
-                        ),
-                      ),
-                      child: currentWidth > 600
-                          ? Text(
-                              'Download CV',
-                              style: CustomTextStyles.h3Bold(
-                                context,
-                                isDarkModeOn ? Colors.black : Colors.white,
-                              ),
-                            )
-                          : Icon(
-                              Icons.download,
-                              color: isDarkModeOn ? Colors.black : Colors.white,
-                            ),
+                  decoration: BoxDecoration(
+                    color: buttonHover
+                        ? AppColors().returnRandomColor(widget.randomNumber)
+                        : isDarkModeOn
+                            ? Colors.white
+                            : Colors.black,
+                    borderRadius: BorderRadius.circular(
+                      MediaQuery.of(context).size.height * 0.02,
                     ),
                   ),
+                  child: currentWidth > 1000
+                      ? Text(
+                          'Download CV',
+                          style: CustomTextStyles.h3Bold(
+                            context,
+                            isDarkModeOn ? Colors.black : Colors.white,
+                          ),
+                        )
+                      : Icon(
+                          Icons.download,
+                          color: isDarkModeOn ? Colors.black : Colors.white,
+                        ),
                 ),
-              ],
+              ),
             ),
           ),
 
