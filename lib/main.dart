@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     //Material App
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'STORMEJ',
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme,

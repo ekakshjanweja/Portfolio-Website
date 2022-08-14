@@ -34,6 +34,7 @@ class BackgroundAnimation extends StatelessWidget {
               RandomGenerator().returnRandomLottie(randomNumber),
               fit: BoxFit.cover,
               controller: animationController,
+              frameRate: FrameRate.max,
             ),
           ),
         ),

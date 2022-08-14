@@ -79,6 +79,17 @@ class _HomePageState extends State<HomePage>
           isDarkModeOn ? const Color(0xff121212) : Colors.grey.shade200,
       body: Stack(
         children: [
+          // //Blob 1
+
+          // Positioned(
+          //   right: -currentWidth * 0.2,
+          //   bottom: -100,
+          //   child: Image.asset(
+          //     'assets/blob_one.png',
+          //     scale: 4,
+          //   ),
+          // ),
+
           //Logo Stormej
 
           Positioned(
@@ -185,12 +196,55 @@ class _HomePageState extends State<HomePage>
           Positioned(
             top: currentWidth > 600 ? currentHeight * 0.2 : currentHeight * 0.2,
             right:
-                currentWidth > 600 ? currentWidth * 0.25 : currentWidth * 0.2,
+                currentWidth > 600 ? currentWidth * 0.25 : currentWidth * 0.05,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                //Image
+
                 Image.asset(
                   profileImage,
                   scale: currentWidth > 1400 ? 3.5 : 8,
+                ),
+
+                SizedBox(
+                  height: currentHeight * 0.1,
+                ),
+
+                //Download CV
+
+                GestureDetector(
+                  onTap: () async {
+                    String cv =
+                        'https://drive.google.com/file/d/1aJP1HjiBOuubdRsUqyS1NNvvkJOSypk1/view?usp=sharing';
+                    if (await launchUrlString(cv)) {
+                    } else {
+                      throw 'Could not launch $cv';
+                    }
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: currentWidth * 0.15,
+                    height: currentHeight * 0.1,
+                    decoration: BoxDecoration(
+                      color: AppColors().returnRandomColor(widget.randomNumber),
+                      borderRadius: BorderRadius.circular(
+                        MediaQuery.of(context).size.height * 0.02,
+                      ),
+                    ),
+                    child: currentWidth > 600
+                        ? Text(
+                            'Download CV',
+                            style: CustomTextStyles.h3Bold(
+                              context,
+                              isDarkModeOn ? Colors.white : Colors.black,
+                            ),
+                          )
+                        : Icon(
+                            Icons.download,
+                            color: isDarkModeOn ? Colors.white : Colors.black,
+                          ),
+                  ),
                 ),
               ],
             ),
@@ -199,8 +253,8 @@ class _HomePageState extends State<HomePage>
           //Theme Button
 
           Positioned(
-            bottom: currentHeight * 0.01,
-            right: currentWidth * 0.01,
+            top: currentHeight * 0.03,
+            right: currentWidth * 0.03,
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -213,8 +267,8 @@ class _HomePageState extends State<HomePage>
                         .returnRandomLightIcon(widget.randomNumber)
                     : RandomGenerator()
                         .returnRandomDarkIcon(widget.randomNumber),
-                width: MediaQuery.of(context).size.height * 0.06,
-                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.height * 0.05,
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
             ),
           ),
@@ -251,7 +305,7 @@ class _HomePageState extends State<HomePage>
                   //LinkedIn
 
                   SocialButton(
-                    icon: 'assets/socials/LinkedIn.svg',
+                    icon: 'assets/socials/LinkedIN.svg',
                     url: urls[1],
                     randomNumber: widget.randomNumber,
                     randomHeight: widget.randomHeight,

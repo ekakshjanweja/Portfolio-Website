@@ -41,12 +41,13 @@ class CustomTextStyles {
     );
   }
 
-  //H2 Bold
+  //H3 Bold
 
   static TextStyle h3Bold(BuildContext context, Color textColor) {
     return TextStyle(
       fontSize: MediaQuery.of(context).size.height * 0.02,
       fontWeight: FontWeight.w900,
+      fontFamily: 'Montserrat-Black',
       color: textColor,
     );
   }
