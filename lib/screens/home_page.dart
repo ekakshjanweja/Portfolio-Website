@@ -1,16 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mailto/mailto.dart';
+import 'package:portfolio_website/constants/app_colors.dart';
 
 import 'package:portfolio_website/constants/random_lottie.dart';
 import 'package:portfolio_website/constants/strings.dart';
 import 'package:portfolio_website/constants/text_styles.dart';
 
 import 'package:portfolio_website/widgets/bg_graphic.dart';
+import 'package:portfolio_website/widgets/social_button.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/background_animation.dart';
 
@@ -49,6 +55,20 @@ class _HomePageState extends State<HomePage>
   }
 
   bool isDarkModeOn = true;
+  bool isHovertingOnGitHub = false;
+  bool isHovertingOnTwitter = false;
+  bool isHovertingOnLinkedIn = false;
+  bool isHovertingOnBehance = false;
+  bool isHovertingOnMail = false;
+
+  Future<void> _launchUrl(Uri uri) async {
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $uri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -193,8 +213,8 @@ class _HomePageState extends State<HomePage>
                         .returnRandomLightIcon(widget.randomNumber)
                     : RandomGenerator()
                         .returnRandomDarkIcon(widget.randomNumber),
-                width: MediaQuery.of(context).size.height * 0.05,
-                height: MediaQuery.of(context).size.height * 0.05,
+                width: MediaQuery.of(context).size.height * 0.06,
+                height: MediaQuery.of(context).size.height * 0.06,
               ),
             ),
           ),
@@ -202,11 +222,63 @@ class _HomePageState extends State<HomePage>
           //Socials
 
           Positioned(
-            bottom: 10,
-            left: 0,
-            right: 0,
-            child: Row(
-              children: [],
+            bottom: currentHeight * 0.03,
+            child: SizedBox(
+              width: currentWidth,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //GitHub
+
+                  SocialButton(
+                    icon: 'assets/socials/Github.svg',
+                    url: urls[0],
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                    iconColor: isDarkModeOn ? Colors.white : Colors.black,
+                  ),
+
+                  //Twitter
+
+                  SocialButton(
+                    icon: 'assets/socials/Twitter.svg',
+                    url: urls[2],
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                    iconColor: isDarkModeOn ? Colors.white : Colors.black,
+                  ),
+
+                  //LinkedIn
+
+                  SocialButton(
+                    icon: 'assets/socials/LinkedIn.svg',
+                    url: urls[1],
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                    iconColor: isDarkModeOn ? Colors.white : Colors.black,
+                  ),
+
+                  //Behance
+
+                  SocialButton(
+                    icon: 'assets/socials/Behance.svg',
+                    url: urls[3],
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                    iconColor: isDarkModeOn ? Colors.white : Colors.black,
+                  ),
+
+                  //Mail
+
+                  SocialButton(
+                    icon: 'assets/socials/Mail.svg',
+                    url: urls[4],
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                    iconColor: isDarkModeOn ? Colors.white : Colors.black,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -12,7 +12,9 @@ class CustomTextStyles {
               : MediaQuery.of(context).size.height * 0.06
           : MediaQuery.of(context).size.height * 0.05,
       fontWeight: FontWeight.w900,
+      fontFamily: 'Montserrat-Black',
       color: textColor,
+      letterSpacing: 2,
     );
   }
 
@@ -44,7 +46,7 @@ class CustomTextStyles {
   static TextStyle h3Bold(BuildContext context, Color textColor) {
     return TextStyle(
       fontSize: MediaQuery.of(context).size.height * 0.02,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w900,
       color: textColor,
     );
   }
