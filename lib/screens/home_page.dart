@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage>
                             )
                           : Icon(
                               Icons.download,
-                              color: isDarkModeOn ? Colors.white : Colors.black,
+                              color: isDarkModeOn ? Colors.black : Colors.white,
                             ),
                     ),
                   ),
