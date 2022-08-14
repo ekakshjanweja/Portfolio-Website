@@ -55,11 +55,7 @@ class _HomePageState extends State<HomePage>
   }
 
   bool isDarkModeOn = true;
-  bool isHovertingOnGitHub = false;
-  bool isHovertingOnTwitter = false;
-  bool isHovertingOnLinkedIn = false;
-  bool isHovertingOnBehance = false;
-  bool isHovertingOnMail = false;
+  bool buttonHover = false;
 
   Future<void> _launchUrl(Uri uri) async {
     if (!await launchUrl(
@@ -222,28 +218,44 @@ class _HomePageState extends State<HomePage>
                       throw 'Could not launch $cv';
                     }
                   },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: currentWidth * 0.15,
-                    height: currentHeight * 0.1,
-                    decoration: BoxDecoration(
-                      color: AppColors().returnRandomColor(widget.randomNumber),
-                      borderRadius: BorderRadius.circular(
-                        MediaQuery.of(context).size.height * 0.02,
+                  child: MouseRegion(
+                    onEnter: (e) {
+                      setState(() {
+                        buttonHover = true;
+                      });
+                    },
+                    onExit: (e) {
+                      setState(() {
+                        buttonHover = false;
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: currentWidth * 0.15,
+                      height: currentHeight * 0.1,
+                      decoration: BoxDecoration(
+                        color: buttonHover
+                            ? AppColors().returnRandomColor(widget.randomNumber)
+                            : isDarkModeOn
+                                ? Colors.white
+                                : Colors.black,
+                        borderRadius: BorderRadius.circular(
+                          MediaQuery.of(context).size.height * 0.02,
+                        ),
                       ),
-                    ),
-                    child: currentWidth > 600
-                        ? Text(
-                            'Download CV',
-                            style: CustomTextStyles.h3Bold(
-                              context,
-                              isDarkModeOn ? Colors.white : Colors.black,
+                      child: currentWidth > 600
+                          ? Text(
+                              'Download CV',
+                              style: CustomTextStyles.h3Bold(
+                                context,
+                                isDarkModeOn ? Colors.black : Colors.white,
+                              ),
+                            )
+                          : Icon(
+                              Icons.download,
+                              color: isDarkModeOn ? Colors.white : Colors.black,
                             ),
-                          )
-                        : Icon(
-                            Icons.download,
-                            color: isDarkModeOn ? Colors.white : Colors.black,
-                          ),
+                    ),
                   ),
                 ),
               ],
