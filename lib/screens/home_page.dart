@@ -200,24 +200,28 @@ class _HomePageState extends State<HomePage>
                     GestureDetector(
                       onTap: () async {
                         String cv =
-                            'https://drive.google.com/file/d/1aJP1HjiBOuubdRsUqyS1NNvvkJOSypk1/view?usp=sharing';
-                        setState(() {
-                          showToast(
-                            "Work In Progress",
-                            position: ToastPosition.bottom,
-                            backgroundColor:
-                                isDarkModeOn ? Colors.white : Colors.black,
-                            radius: 5.0,
-                            animationCurve: Curves.easeIn,
-                            animationDuration:
-                                const Duration(milliseconds: 200),
-                            duration: const Duration(seconds: 3),
-                            textStyle: CustomTextStyles.h3Bold(
-                              context,
-                              isDarkModeOn ? Colors.black : Colors.white,
-                            ),
-                          );
-                        });
+                            'https://drive.google.com/file/d/1Eo3suot5HnYIiAhjwLN0GSTjLbRGN4L9/view?usp=sharing';
+                        if (await launchUrlString(cv)) {
+                        } else {
+                          throw 'Could not launch $cv';
+                        }
+                        // setState(() {
+                        //   showToast(
+                        //     "Work In Progress",
+                        //     position: ToastPosition.bottom,
+                        //     backgroundColor:
+                        //         isDarkModeOn ? Colors.white : Colors.black,
+                        //     radius: 5.0,
+                        //     animationCurve: Curves.easeIn,
+                        //     animationDuration:
+                        //         const Duration(milliseconds: 200),
+                        //     duration: const Duration(seconds: 3),
+                        //     textStyle: CustomTextStyles.h3Bold(
+                        //       context,
+                        //       isDarkModeOn ? Colors.black : Colors.white,
+                        //     ),
+                        //   );
+                        // });
                       },
                       child: MouseRegion(
                         onEnter: (e) {
@@ -232,7 +236,7 @@ class _HomePageState extends State<HomePage>
                         },
                         child: currentWidth > 1000
                             ? Text(
-                                'Download CV',
+                                'Download Resume',
                                 style: CustomTextStyles.h2Bold(
                                   context,
                                   buttonHover
