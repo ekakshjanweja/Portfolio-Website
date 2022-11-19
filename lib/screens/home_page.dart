@@ -12,6 +12,7 @@ import 'package:portfolio_website/constants/app_colors.dart';
 import 'package:portfolio_website/constants/random_lottie.dart';
 import 'package:portfolio_website/constants/strings.dart';
 import 'package:portfolio_website/constants/text_styles.dart';
+import 'package:portfolio_website/screens/projects.dart';
 
 import 'package:portfolio_website/widgets/bg_graphic.dart';
 import 'package:portfolio_website/widgets/social_button.dart';
@@ -200,7 +201,7 @@ class _HomePageState extends State<HomePage>
                     GestureDetector(
                       onTap: () async {
                         String cv =
-                            'https://drive.google.com/file/d/10ozKVwHvlGCeC33aif851LlGofsjGhfp/view?usp=sharing';
+                            'https://drive.google.com/file/d/1X-GK_NyTghK3S_XgDvd4lydV9a-u5jrM/view?usp=share_link';
                         if (await launchUrlString(cv)) {
                         } else {
                           throw 'Could not launch $cv';
@@ -297,21 +298,49 @@ class _HomePageState extends State<HomePage>
               Positioned(
                 top: currentHeight * 0.03,
                 right: currentWidth * 0.03,
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isDarkModeOn = !isDarkModeOn;
-                    });
-                  },
-                  child: Image.asset(
-                    isDarkModeOn
-                        ? RandomGenerator()
-                            .returnRandomLightIcon(widget.randomNumber)
-                        : RandomGenerator()
-                            .returnRandomDarkIcon(widget.randomNumber),
-                    width: MediaQuery.of(context).size.height * 0.05,
-                    height: MediaQuery.of(context).size.height * 0.05,
-                  ),
+                child: Row(
+                  children: [
+                    //Projects
+
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Projects(
+                                randomHeight: widget.randomHeight,
+                                randomNumber: widget.randomNumber,
+                              ),
+                            ));
+                      },
+                      child: Text(
+                        'Projects',
+                        style: CustomTextStyles.h2Bold(context,
+                            isDarkModeOn ? Colors.white : Colors.black),
+                      ),
+                    ),
+
+                    const SizedBox(
+                      width: 32,
+                    ),
+
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isDarkModeOn = !isDarkModeOn;
+                        });
+                      },
+                      child: Image.asset(
+                        isDarkModeOn
+                            ? RandomGenerator()
+                                .returnRandomLightIcon(widget.randomNumber)
+                            : RandomGenerator()
+                                .returnRandomDarkIcon(widget.randomNumber),
+                        width: MediaQuery.of(context).size.height * 0.05,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
