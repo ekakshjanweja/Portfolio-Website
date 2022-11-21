@@ -81,17 +81,6 @@ class _HomePageState extends State<HomePage>
               isDarkModeOn ? const Color(0xff121212) : Colors.grey.shade200,
           body: Stack(
             children: [
-              // //Blob 1
-
-              // Positioned(
-              //   right: -currentWidth * 0.2,
-              //   bottom: -100,
-              //   child: Image.asset(
-              //     'assets/blob_one.png',
-              //     scale: 4,
-              //   ),
-              // ),
-
               //Logo Stormej
 
               Positioned(
@@ -201,28 +190,11 @@ class _HomePageState extends State<HomePage>
                     GestureDetector(
                       onTap: () async {
                         String cv =
-                            'https://drive.google.com/file/d/1X-GK_NyTghK3S_XgDvd4lydV9a-u5jrM/view?usp=share_link';
+                            'https://drive.google.com/file/d/1NFFD30PuFMLHciIfpezOxdC2ORWlELsH/view?usp=share_link';
                         if (await launchUrlString(cv)) {
                         } else {
                           throw 'Could not launch $cv';
                         }
-                        // setState(() {
-                        //   showToast(
-                        //     "Work In Progress",
-                        //     position: ToastPosition.bottom,
-                        //     backgroundColor:
-                        //         isDarkModeOn ? Colors.white : Colors.black,
-                        //     radius: 5.0,
-                        //     animationCurve: Curves.easeIn,
-                        //     animationDuration:
-                        //         const Duration(milliseconds: 200),
-                        //     duration: const Duration(seconds: 3),
-                        //     textStyle: CustomTextStyles.h3Bold(
-                        //       context,
-                        //       isDarkModeOn ? Colors.black : Colors.white,
-                        //     ),
-                        //   );
-                        // });
                       },
                       child: MouseRegion(
                         onEnter: (e) {
