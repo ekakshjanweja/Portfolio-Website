@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_website/constants/app_colors.dart';
 import 'package:portfolio_website/constants/random_lottie.dart';
+import 'package:portfolio_website/screens/home_page.dart';
+import 'package:portfolio_website/widgets/project_widget.dart';
 
 class Projects extends StatefulWidget {
   final randomNumber;
@@ -24,8 +27,7 @@ class _ProjectsState extends State<Projects> {
     var currentHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor:
-          isDarkModeOn ? const Color(0xff121212) : Colors.grey.shade200,
+      backgroundColor: isDarkModeOn ? Colors.black : Colors.white,
       body: Stack(
         children: [
           //Logo Stormej
@@ -33,20 +35,70 @@ class _ProjectsState extends State<Projects> {
           Positioned(
             top: currentHeight * 0.03,
             left: currentWidth * 0.03,
-            child: SvgPicture.asset(
-                isDarkModeOn ? 'assets/logo.svg' : 'assets/logo_dark.svg'),
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HomePage(
+                    randomNumber: widget.randomNumber,
+                    randomHeight: widget.randomHeight,
+                  ),
+                ),
+              ),
+              child: SvgPicture.asset(
+                  isDarkModeOn ? 'assets/logo.svg' : 'assets/logo_dark.svg'),
+            ),
           ),
 
-          //Not Whatsapp
+          //Project Row
 
           Positioned(
             top: currentHeight * 0.2,
-            left: currentWidth * 0.1,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                  color: AppColors().returnRandomColor(widget.randomNumber)),
+            left: currentWidth * 0.02,
+            right: currentWidth * 0.02,
+            bottom: currentHeight * 0.01,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  //Project 1
+
+                  Project(
+                    isDarkModeOn: isDarkModeOn,
+                    randomHeight: widget.randomHeight,
+                    randomNumber: widget.randomNumber,
+                    title: 'Google Docs Clone',
+                    desc:
+                        'Introducing "DocuDoodle", a clone of Google Docs built with Flutter, Node.js, MongoDB, Express, and Socket.io. DocuDoodle offers real-time collaboration, fast performance, and an intuitive design similar to Google Docs.',
+                    techStack:
+                        'Flutter - Riverpod - NodeJs - Express - MongoDB - SocketIO',
+                    url: 'https://github.com/ekakshjanweja/Google-Docs-Clone',
+                  ),
+
+                  //Project 2
+
+                  Project(
+                    isDarkModeOn: isDarkModeOn,
+                    randomHeight: widget.randomHeight,
+                    randomNumber: widget.randomNumber,
+                    title: 'NotWhatsapp',
+                    desc:
+                        'Introducing "NotWhatsApp", a clone of the popular instant messaging app, WhatsApp. Built with Flutter and Firebase, NotWhatsApp offers features such as Group Chat, GIF Support, Video Call, Emoji and Image Support, Status, and State Management using Riverpod.',
+                    techStack: 'Flutter - Riverpod - Firebase - GIPHY - Agora',
+                    url: 'https://github.com/ekakshjanweja/NotWhatsapp',
+                  ),
+
+                  //Project 3
+
+                  Project(
+                    isDarkModeOn: isDarkModeOn,
+                    randomHeight: widget.randomHeight,
+                    randomNumber: widget.randomNumber,
+                    title: 'Personal Portfolio Website',
+                    desc: 'You are already hear.',
+                    techStack: 'Flutter - Provider - Lottie Files',
+                    url: 'https://github.com/ekakshjanweja/Portfolio-Website',
+                  ),
+                ],
+              ),
             ),
           ),
 

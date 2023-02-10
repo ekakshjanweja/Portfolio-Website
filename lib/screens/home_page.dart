@@ -77,8 +77,7 @@ class _HomePageState extends State<HomePage>
     return SafeArea(
       child: OKToast(
         child: Scaffold(
-          backgroundColor:
-              isDarkModeOn ? const Color(0xff121212) : Colors.grey.shade200,
+          backgroundColor: isDarkModeOn ? Colors.black : Colors.white,
           body: Stack(
             children: [
               //Logo Stormej
@@ -86,8 +85,19 @@ class _HomePageState extends State<HomePage>
               Positioned(
                 top: currentHeight * 0.03,
                 left: currentWidth * 0.03,
-                child: SvgPicture.asset(
-                    isDarkModeOn ? 'assets/logo.svg' : 'assets/logo_dark.svg'),
+                child: GestureDetector(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(
+                        randomNumber: widget.randomNumber,
+                        randomHeight: widget.randomHeight,
+                      ),
+                    ),
+                  ),
+                  child: SvgPicture.asset(isDarkModeOn
+                      ? 'assets/logo.svg'
+                      : 'assets/logo_dark.svg'),
+                ),
               ),
 
               //Lottie Animation
@@ -190,7 +200,7 @@ class _HomePageState extends State<HomePage>
                     GestureDetector(
                       onTap: () async {
                         String cv =
-                            'https://drive.google.com/file/d/1NFFD30PuFMLHciIfpezOxdC2ORWlELsH/view?usp=share_link';
+                            'https://drive.google.com/file/d/1Ca0zF7DHKS_7sL1BrvuFZN_S5z6DrCKe/view?usp=sharing';
                         if (await launchUrlString(cv)) {
                         } else {
                           throw 'Could not launch $cv';
@@ -255,7 +265,7 @@ class _HomePageState extends State<HomePage>
               Positioned(
                 top: currentWidth > 600
                     ? currentHeight * 0.2
-                    : currentHeight * 0.2,
+                    : currentHeight * 0.15,
                 right: currentWidth > 600
                     ? currentWidth * 0.25
                     : currentWidth * 0.05,

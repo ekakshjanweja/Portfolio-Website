@@ -1,4 +1,5 @@
 const String profileImage = 'assets/profile.png';
+const String profileImageNew = 'assets/profile_1.png';
 
 const String lineOne = 'Hi, my name is';
 

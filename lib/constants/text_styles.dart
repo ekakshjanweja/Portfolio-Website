@@ -51,4 +51,15 @@ class CustomTextStyles {
       color: textColor,
     );
   }
+
+  //body
+
+  static TextStyle body(BuildContext context, Color textColor) {
+    return TextStyle(
+      fontSize: MediaQuery.of(context).size.height * 0.018,
+      fontWeight: FontWeight.normal,
+      fontFamily: 'Montserrat-Black',
+      color: textColor,
+    );
+  }
 }
