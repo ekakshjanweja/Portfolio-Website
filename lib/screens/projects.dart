@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_website/constants/app_colors.dart';
 import 'package:portfolio_website/constants/random_lottie.dart';
 import 'package:portfolio_website/screens/home_page.dart';
+import 'package:portfolio_website/widgets/background_animation.dart';
+import 'package:portfolio_website/widgets/bg_graphic.dart';
 import 'package:portfolio_website/widgets/project_widget.dart';
 
 class Projects extends StatefulWidget {
@@ -46,6 +48,19 @@ class _ProjectsState extends State<Projects> {
               ),
               child: SvgPicture.asset(
                   isDarkModeOn ? 'assets/logo.svg' : 'assets/logo_dark.svg'),
+            ),
+          ),
+
+          //Background Graphic
+
+          Positioned(
+            left: -currentWidth * 0.25,
+            bottom: currentWidth > 600
+                ? -currentHeight * 0.5
+                : -currentHeight * 0.1,
+            child: Opacity(
+              opacity: 0.4,
+              child: BackgroundGraphic(randomNumber: widget.randomNumber),
             ),
           ),
 
