@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage>
                     GestureDetector(
                       onTap: () async {
                         String cv =
-                            'https://drive.google.com/file/d/1Ca0zF7DHKS_7sL1BrvuFZN_S5z6DrCKe/view?usp=sharing';
+                            'https://drive.google.com/file/d/1MNGJngvbzjOuXSVD-1pDt0qOpubuitQn/view?usp=sharing';
                         if (await launchUrlString(cv)) {
                         } else {
                           throw 'Could not launch $cv';
