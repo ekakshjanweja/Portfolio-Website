@@ -1,394 +1,83 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:io';
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:oktoast/oktoast.dart';
+import 'package:portfolio_website/main.dart';
+import 'package:portfolio_website/theme/app_colors.dart';
+import 'package:portfolio_website/utils/providers/providers.dart';
+import 'package:portfolio_website/widgets/hero_widget.dart';
+import 'package:portfolio_website/widgets/navbar.dart';
+import 'package:portfolio_website/widgets/skills_widget.dart';
+import 'package:portfolio_website/widgets/social_icon.dart';
+import 'package:portfolio_website/widgets/social_section.dart';
+import 'package:portfolio_website/widgets/workex_widget.dart';
 
-import 'package:portfolio_website/constants/app_colors.dart';
-
-import 'package:portfolio_website/constants/random_lottie.dart';
-import 'package:portfolio_website/constants/strings.dart';
-import 'package:portfolio_website/constants/text_styles.dart';
-import 'package:portfolio_website/screens/projects.dart';
-
-import 'package:portfolio_website/widgets/bg_graphic.dart';
-import 'package:portfolio_website/widgets/social_button.dart';
-import 'package:responsive_builder/responsive_builder.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
-import '../widgets/background_animation.dart';
-
-class HomePage extends StatefulWidget {
-  final randomNumber;
-  final randomHeight;
-
-  const HomePage({
-    Key? key,
-    required this.randomNumber,
-    required this.randomHeight,
-  }) : super(key: key);
+class HomePage extends ConsumerStatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  //Controllers
-  late final AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      duration: const Duration(seconds: 2),
-      vsync: this,
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  bool isDarkModeOn = true;
-  bool buttonHover = false;
-
-  Future<void> _launchUrl(Uri uri) async {
-    if (!await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    )) {
-      throw 'Could not launch $uri';
-    }
-  }
-
+class _HomePageState extends ConsumerState<HomePage> {
+  bool resumeHover = false;
   @override
   Widget build(BuildContext context) {
-    var currentWidth = MediaQuery.of(context).size.width;
-    var currentHeight = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: OKToast(
-        child: Scaffold(
-          backgroundColor: isDarkModeOn ? Colors.black : Colors.white,
-          body: Stack(
-            children: [
-              //Logo Stormej
+    final theme = ref.watch(themeProvider);
+    final currentHeight = MediaQuery.of(context).size.height;
+    final currentWidth = MediaQuery.of(context).size.width;
 
-              Positioned(
-                top: currentHeight * 0.03,
-                left: currentWidth * 0.03,
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                      ),
-                    ),
-                  ),
-                  child: SvgPicture.asset(isDarkModeOn
-                      ? 'assets/logo.svg'
-                      : 'assets/logo_dark.svg'),
+    return Scaffold(
+      backgroundColor: theme == ThemeMode.dark
+          ? AppColors().darkBlueColor
+          : Colors.grey.shade200,
+      body: Container(
+        alignment: Alignment.topCenter,
+        padding: EdgeInsets.symmetric(
+          horizontal:
+              currentWidth > 800 ? currentWidth * 0.25 : currentWidth * 0.2,
+        ),
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //Navbar
+
+                const Navbar(),
+
+                //Hero
+
+                SizedBox(
+                  height: currentHeight * 0.07,
                 ),
-              ),
 
-              //Lottie Animation
+                const HeroWidget(),
 
-              Positioned(
-                right: currentHeight / 10,
-                top: -currentHeight /
-                    RandomGenerator().returnRandomHeight(widget.randomHeight),
-                child: BackgroundAnimation(
-                  animationController: _animationController,
-                  randomNumber: widget.randomNumber,
+                //Socials
+
+                SizedBox(
+                  height: currentHeight * 0.1,
                 ),
-              ),
 
-              //Background Graphic
+                const SocialSection(),
 
-              Positioned(
-                left: -currentWidth * 0.25,
-                bottom: currentWidth > 600
-                    ? -currentHeight * 0.5
-                    : -currentHeight * 0.1,
-                child: Opacity(
-                  opacity: 0.4,
-                  child: BackgroundGraphic(randomNumber: widget.randomNumber),
+                //Work Experience
+
+                SizedBox(
+                  height: currentHeight * 0.1,
                 ),
-              ),
 
-              //Text Column
+                // const WorkexWidget(),
 
-              Positioned(
-                top: currentHeight * 0.2,
-                left: currentWidth > 600
-                    ? currentWidth * 0.125
-                    : currentWidth * 0.04,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      lineOne,
-                      style: CustomTextStyles.h3Bold(
-                        context,
-                        isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Text(
-                      lineTwo,
-                      style: CustomTextStyles.h2Bold(
-                        context,
-                        isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    Text(
-                      lineThree,
-                      style: CustomTextStyles.h2Bold(
-                        context,
-                        isDarkModeOn
-                            ? Colors.grey.shade600
-                            : Colors.grey.shade600,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Text(
-                      lineFour,
-                      style: CustomTextStyles.h1Bold(
-                        context,
-                        isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      lineFive,
-                      style: CustomTextStyles.h2Bold(
-                        context,
-                        isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Text(
-                      lineSix,
-                      style: CustomTextStyles.h3Bold(
-                        context,
-                        isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
+                const Skills(),
 
-                    //Download CV
+                //Bottom Sized Box
 
-                    GestureDetector(
-                      onTap: () async {
-                        String cv =
-                            'https://drive.google.com/file/d/1MNGJngvbzjOuXSVD-1pDt0qOpubuitQn/view?usp=sharing';
-                        if (await launchUrlString(cv)) {
-                        } else {
-                          throw 'Could not launch $cv';
-                        }
-                      },
-                      child: MouseRegion(
-                        onEnter: (e) {
-                          setState(() {
-                            buttonHover = true;
-                          });
-                        },
-                        onExit: (e) {
-                          setState(() {
-                            buttonHover = false;
-                          });
-                        },
-                        child: currentWidth > 1000
-                            ? Text(
-                                'Download Resume',
-                                style: CustomTextStyles.h2Bold(
-                                  context,
-                                  buttonHover
-                                      ? AppColors().returnRandomColor(
-                                          widget.randomNumber)
-                                      : isDarkModeOn
-                                          ? Colors.white
-                                          : Colors.black,
-                                ).copyWith(
-                                  height: 1.6,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              )
-                            : Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: buttonHover
-                                      ? AppColors().returnRandomColor(
-                                          widget.randomNumber)
-                                      : isDarkModeOn
-                                          ? Colors.white
-                                          : Colors.black,
-                                ),
-                                child: Transform.rotate(
-                                  angle: -90 * math.pi / 180,
-                                  child: Icon(
-                                    Icons.note,
-                                    color: isDarkModeOn
-                                        ? Colors.black
-                                        : Colors.white,
-                                  ),
-                                ),
-                              ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              //Image Column
-
-              Positioned(
-                top: currentWidth > 600
-                    ? currentHeight * 0.2
-                    : currentHeight * 0.15,
-                right: currentWidth > 600
-                    ? currentWidth * 0.25
-                    : currentWidth * 0.05,
-                child: Image.asset(
-                  profileImage,
-                  scale: currentWidth > 1400 ? 3.5 : 8,
-                ),
-              ),
-
-              //Theme Button
-
-              Positioned(
-                top: currentHeight * 0.03,
-                right: currentWidth * 0.03,
-                child: Row(
-                  children: [
-                    //Projects
-
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Projects(
-                                randomHeight: widget.randomHeight,
-                                randomNumber: widget.randomNumber,
-                              ),
-                            ));
-                      },
-                      child: Text(
-                        'Projects',
-                        style: CustomTextStyles.h2Bold(context,
-                            isDarkModeOn ? Colors.white : Colors.black),
-                      ),
-                    ),
-
-                    const SizedBox(
-                      width: 32,
-                    ),
-
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isDarkModeOn = !isDarkModeOn;
-                        });
-                      },
-                      child: Image.asset(
-                        isDarkModeOn
-                            ? RandomGenerator()
-                                .returnRandomLightIcon(widget.randomNumber)
-                            : RandomGenerator()
-                                .returnRandomDarkIcon(widget.randomNumber),
-                        width: MediaQuery.of(context).size.height * 0.05,
-                        height: MediaQuery.of(context).size.height * 0.05,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              //Socials
-
-              Positioned(
-                bottom: currentHeight * 0.03,
-                child: SizedBox(
-                  width: currentWidth,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //GitHub
-
-                      SocialButton(
-                        icon: 'assets/socials/Github.svg',
-                        url: urls[0],
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                        iconColor: isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-
-                      //Twitter
-
-                      SocialButton(
-                        icon: 'assets/socials/Twitter.svg',
-                        url: urls[2],
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                        iconColor: isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-
-                      //LinkedIn
-
-                      SocialButton(
-                        icon: 'assets/socials/LinkedIN.svg',
-                        url: urls[1],
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                        iconColor: isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-
-                      //Behance
-
-                      SocialButton(
-                        icon: 'assets/socials/Behance.svg',
-                        url: urls[3],
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                        iconColor: isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-
-                      //Mail
-
-                      SocialButton(
-                        icon: 'assets/socials/Mail.svg',
-                        url: urls[4],
-                        randomNumber: widget.randomNumber,
-                        randomHeight: widget.randomHeight,
-                        iconColor: isDarkModeOn ? Colors.white : Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+                SizedBox(
+                  height: currentHeight * 0.1,
+                )
+              ],
+            ),
           ),
         ),
       ),
