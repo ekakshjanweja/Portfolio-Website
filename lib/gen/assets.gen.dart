@@ -9,6 +9,49 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Helvetica Neue LTW0697BlkCnObl.otf
+  String get helveticaNeueLTW0697BlkCnObl =>
+      'assets/fonts/Helvetica Neue LTW0697BlkCnObl.otf';
+
+  /// File path: assets/fonts/Helvetica Neue Medium Extended.otf
+  String get helveticaNeueMediumExtended =>
+      'assets/fonts/Helvetica Neue Medium Extended.otf';
+
+  /// File path: assets/fonts/Helvetica Neue UltraLight.otf
+  String get helveticaNeueUltraLight =>
+      'assets/fonts/Helvetica Neue UltraLight.otf';
+
+  /// File path: assets/fonts/Helvetica Neue W01 66 Medium It.ttf
+  String get helveticaNeueW0166MediumIt =>
+      'assets/fonts/Helvetica Neue W01 66 Medium It.ttf';
+
+  /// File path: assets/fonts/Helvetica Neue W01 77 Bd Cn Obl.ttf
+  String get helveticaNeueW0177BdCnObl =>
+      'assets/fonts/Helvetica Neue W01 77 Bd Cn Obl.ttf';
+
+  /// File path: assets/fonts/Helvetica Neue W01 87 Hv Cn Obl.ttf
+  String get helveticaNeueW0187HvCnObl =>
+      'assets/fonts/Helvetica Neue W01 87 Hv Cn Obl.ttf';
+
+  /// File path: assets/fonts/Helvetica NeueLTW0693BlkExtObl.ttf
+  String get helveticaNeueLTW0693BlkExtObl =>
+      'assets/fonts/Helvetica NeueLTW0693BlkExtObl.ttf';
+
+  /// List of all assets
+  List<String> get values => [
+        helveticaNeueLTW0697BlkCnObl,
+        helveticaNeueMediumExtended,
+        helveticaNeueUltraLight,
+        helveticaNeueW0166MediumIt,
+        helveticaNeueW0177BdCnObl,
+        helveticaNeueW0187HvCnObl,
+        helveticaNeueLTW0693BlkExtObl
+      ];
+}
+
 class $AssetsLogosGen {
   const $AssetsLogosGen();
 
@@ -42,11 +85,23 @@ class $AssetsLogosGen {
   /// File path: assets/logos/notion_white.svg
   String get notionWhite => 'assets/logos/notion_white.svg';
 
+  /// File path: assets/logos/playstore.svg
+  String get playstore => 'assets/logos/playstore.svg';
+
   /// File path: assets/logos/react.svg
   String get react => 'assets/logos/react.svg';
 
   /// File path: assets/logos/tailwind.svg
   String get tailwind => 'assets/logos/tailwind.svg';
+
+  /// File path: assets/logos/tas.svg
+  String get tas => 'assets/logos/tas.svg';
+
+  /// File path: assets/logos/tbb.svg
+  String get tbb => 'assets/logos/tbb.svg';
+
+  /// File path: assets/logos/tbb_logo.png
+  AssetGenImage get tbbLogo => const AssetGenImage('assets/logos/tbb_logo.png');
 
   /// File path: assets/logos/ts.svg
   String get ts => 'assets/logos/ts.svg';
@@ -54,8 +109,17 @@ class $AssetsLogosGen {
   /// File path: assets/logos/twitter.svg
   String get twitter => 'assets/logos/twitter.svg';
 
+  /// File path: assets/logos/valorant.svg
+  String get valorant => 'assets/logos/valorant.svg';
+
+  /// File path: assets/logos/zu.svg
+  String get zu => 'assets/logos/zu.svg';
+
+  /// File path: assets/logos/zu_logo.png
+  AssetGenImage get zuLogo => const AssetGenImage('assets/logos/zu_logo.png');
+
   /// List of all assets
-  List<String> get values => [
+  List<dynamic> get values => [
         dart,
         figma,
         firebase,
@@ -66,16 +130,24 @@ class $AssetsLogosGen {
         linkedin,
         notion,
         notionWhite,
+        playstore,
         react,
         tailwind,
+        tas,
+        tbb,
+        tbbLogo,
         ts,
-        twitter
+        twitter,
+        valorant,
+        zu,
+        zuLogo
       ];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const String iconDark = 'assets/icon_dark.svg';
   static const String iconLight = 'assets/icon_light.svg';
   static const String logoDark = 'assets/logo_dark.svg';
