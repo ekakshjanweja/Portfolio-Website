@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_large.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_small.dart';
+import 'package:portfolio_website/common/widgets/navbars/bottom_bar.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_large.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_small.dart';
+import 'package:portfolio_website/common/widgets/projects/projects_section.dart';
 import 'package:portfolio_website/common/widgets/skills/skills_large.dart';
 import 'package:portfolio_website/common/widgets/workex/work_ex_section.dart';
 
@@ -57,6 +59,20 @@ class TabletHomePage extends ConsumerWidget {
                   ),
 
                   const WorkEx(),
+
+                  //Projects
+
+                  const SizedBox(
+                    height: 30,
+                  ),
+
+                  const ProjectsSection(),
+
+                  const SizedBox(
+                    height: 30,
+                  ),
+
+                  const BottomBar(),
                 ],
               ),
             ),

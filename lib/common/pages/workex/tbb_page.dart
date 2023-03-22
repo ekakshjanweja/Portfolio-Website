@@ -22,7 +22,6 @@ class _TbbPageState extends ConsumerState<TbbPage> {
   @override
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
-
     return Hero(
       tag: 'tbb',
       child: Scaffold(
@@ -44,42 +43,11 @@ class _TbbPageState extends ConsumerState<TbbPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Wrap(
+                      alignment: WrapAlignment.center,
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
-                        //Heading
+                        //Close Button
 
-                        MouseRegion(
-                          cursor: SystemMouseCursors.click,
-                          onEnter: (event) => setState(() {
-                            istbb = true;
-                          }),
-                          onExit: (event) => setState(() {
-                            istbb = false;
-                          }),
-                          child: GestureDetector(
-                            onTap: () {
-                              LaunchUrl().launchUrl(Strings.tbb);
-                            },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 10, right: 30),
-                              child: Text(
-                                'Team Black Box',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(
-                                      fontSize: Dimensions.largeTextSize,
-                                      color: istbb
-                                          ? Colors.red
-                                          : Theme.of(context)
-                                              .colorScheme
-                                              .onPrimaryContainer,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Container(
@@ -100,8 +68,44 @@ class _TbbPageState extends ConsumerState<TbbPage> {
                             ),
                           ),
                         ),
+
+                        //Heading
+
+                        MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          onEnter: (event) => setState(() {
+                            istbb = true;
+                          }),
+                          onExit: (event) => setState(() {
+                            istbb = false;
+                          }),
+                          child: GestureDetector(
+                            onTap: () {
+                              LaunchUrl().launchUrl(Strings.tbb);
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 10, left: 30),
+                              child: Text(
+                                'Team Black Box',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .copyWith(
+                                      fontSize: Dimensions.largeTextSize,
+                                      color: istbb
+                                          ? Colors.red
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .onPrimaryContainer,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
+
                     const SizedBox(height: 40),
 
                     //Take A Sip
@@ -119,9 +123,11 @@ class _TbbPageState extends ConsumerState<TbbPage> {
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
                                   fontSize: Dimensions.mediumTextSize,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onPrimaryContainer,
+                                  color: istas
+                                      ? AppColors().blueColor
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer,
                                 ),
                       ),
                     ),
@@ -146,7 +152,9 @@ class _TbbPageState extends ConsumerState<TbbPage> {
                                     .colorScheme
                                     .tertiaryContainer
                                     .withOpacity(0.4)),
-                            onPressed: () {},
+                            onPressed: () {
+                              LaunchUrl().launchUrl(Strings.takeASipPlaystore);
+                            },
                             icon: SvgPicture.asset(
                               Assets.logos.playstore,
                               height: Dimensions.smallerTextSize,
@@ -157,26 +165,26 @@ class _TbbPageState extends ConsumerState<TbbPage> {
 
                         //Github
 
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: FilledButton.tonalIcon(
-                            style: FilledButton.styleFrom(
-                                elevation: 0,
-                                padding: const EdgeInsets.all(20),
-                                backgroundColor: Theme.of(context)
-                                    .colorScheme
-                                    .tertiaryContainer
-                                    .withOpacity(0.4)),
-                            onPressed: () {},
-                            icon: SvgPicture.asset(
-                              theme == ThemeMode.dark
-                                  ? Assets.logos.githubWhite
-                                  : Assets.logos.githubBlack,
-                              height: Dimensions.smallerTextSize,
-                            ),
-                            label: const Text('GitHub'),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(bottom: 10),
+                        //   child: FilledButton.tonalIcon(
+                        //     style: FilledButton.styleFrom(
+                        //         elevation: 0,
+                        //         padding: const EdgeInsets.all(20),
+                        //         backgroundColor: Theme.of(context)
+                        //             .colorScheme
+                        //             .tertiaryContainer
+                        //             .withOpacity(0.4)),
+                        //     onPressed: () {},
+                        //     icon: SvgPicture.asset(
+                        //       theme == ThemeMode.dark
+                        //           ? Assets.logos.githubWhite
+                        //           : Assets.logos.githubBlack,
+                        //       height: Dimensions.smallerTextSize,
+                        //     ),
+                        //     label: const Text('GitHub'),
+                        //   ),
+                        // ),
                       ],
                     ),
 
@@ -185,7 +193,7 @@ class _TbbPageState extends ConsumerState<TbbPage> {
                     const SizedBox(height: 40),
 
                     Text(
-                      'Take A Sip',
+                      'I Wont\'t Forget',
                       style:
                           Theme.of(context).textTheme.headlineSmall!.copyWith(
                                 fontSize: Dimensions.mediumTextSize,
@@ -201,26 +209,28 @@ class _TbbPageState extends ConsumerState<TbbPage> {
 
                     const SizedBox(height: 20),
 
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: FilledButton.tonalIcon(
-                        style: FilledButton.styleFrom(
-                            elevation: 0,
-                            padding: const EdgeInsets.all(20),
-                            backgroundColor: Theme.of(context)
-                                .colorScheme
-                                .tertiaryContainer
-                                .withOpacity(0.4)),
-                        onPressed: () {},
-                        icon: SvgPicture.asset(
-                          theme == ThemeMode.dark
-                              ? Assets.logos.githubWhite
-                              : Assets.logos.githubBlack,
-                          height: Dimensions.smallerTextSize,
-                        ),
-                        label: const Text('GitHub'),
-                      ),
-                    ),
+                    //Github
+
+                    //   Padding(
+                    //     padding: const EdgeInsets.only(bottom: 10),
+                    //     child: FilledButton.tonalIcon(
+                    //       style: FilledButton.styleFrom(
+                    //           elevation: 0,
+                    //           padding: const EdgeInsets.all(20),
+                    //           backgroundColor: Theme.of(context)
+                    //               .colorScheme
+                    //               .tertiaryContainer
+                    //               .withOpacity(0.4)),
+                    //       onPressed: () {},
+                    //       icon: SvgPicture.asset(
+                    //         theme == ThemeMode.dark
+                    //             ? Assets.logos.githubWhite
+                    //             : Assets.logos.githubBlack,
+                    //         height: Dimensions.smallerTextSize,
+                    //       ),
+                    //       label: const Text('GitHub'),
+                    //     ),
+                    //   ),
                   ],
                 ),
               ),

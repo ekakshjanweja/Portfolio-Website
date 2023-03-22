@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_large.dart';
+import 'package:portfolio_website/common/widgets/navbars/bottom_bar.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_large.dart';
+import 'package:portfolio_website/common/widgets/projects/projects_section.dart';
 import 'package:portfolio_website/common/widgets/skills/skills_large.dart';
 import 'package:portfolio_website/common/widgets/workex/work_ex_section.dart';
 
@@ -52,8 +54,20 @@ class DesktopHomePage extends ConsumerWidget {
                   WorkEx(),
 
                   SizedBox(
-                    height: 100,
+                    height: 80,
                   ),
+
+                  //Projects
+
+                  ProjectsSection(),
+
+                  SizedBox(
+                    height: 80,
+                  ),
+
+                  //Bottom Bar
+
+                  BottomBar()
                 ],
               ),
             ),

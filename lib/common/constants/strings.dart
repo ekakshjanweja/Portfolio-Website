@@ -14,6 +14,10 @@ class Strings {
 
   static const twitter = 'https://twitter.com/ekaksh_janweja';
 
+  //Instagram
+
+  static const insta = 'https://www.instagram.com/ekakshjanweja/';
+
   //Linkedin
 
   static const linkedin = 'https://www.linkedin.com/in/ekakshjanweja/';
@@ -79,6 +83,35 @@ class Strings {
 
   static const zuPlaystore =
       'https://play.google.com/store/apps/details?id=in.zupay.app';
+
+  //NotWhatsapp Apk
+
+  static const notwhatsappApk =
+      'https://drive.google.com/file/d/1v4Gjv2rGPkc7SIudtZbGkxN6LbCQUTu9/view';
+
+  //NotWhatsapp Github
+
+  static const notwhatsappGithub =
+      'https://github.com/ekakshjanweja/NotWhatsapp';
+
+  //Google Docs Video
+
+  static const googleDocsVideo =
+      'https://www.youtube.com/watch?v=EKjbYMvR8xs&ab_channel=EkakshJanweja';
+
+  //Google Docs Github
+
+  static const googleDocsGithub =
+      'https://github.com/ekakshjanweja/Google-Docs-Clone';
+
+  //Portfolio
+
+  static const portfolio = 'https://stormej.me/#/';
+
+  //Portfolio Github
+
+  static const portfolioGithub =
+      'https://github.com/ekakshjanweja/Portfolio-Website';
 
   //ZU Desc
 
@@ -239,6 +272,211 @@ class Strings {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  //Not Whatsapp Desc
+
+  Text notWhatsappDesc(BuildContext context, WidgetRef ref) {
+    return Text.rich(
+      TextSpan(
+        text: 'NotWhatsapp is my messaging app project built using ',
+        style: GoogleFonts.josefinSans(
+          fontSize: Dimensions.smallerTextSize,
+          fontWeight: FontWeight.w300,
+          color: Theme.of(context)
+              .colorScheme
+              .onPrimaryContainer
+              .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+        ),
+        children: <TextSpan>[
+          TextSpan(
+            text: 'Flutter and Firebase ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text:
+                ', specifically firebase_auth for authentication and cloud_firestore for database management. I use ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text: 'Riverpod for state management ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text: 'and have implemented ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text:
+                'group chat, GIFs, emojis, status updates, video calls, and reply functionality. ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text:
+                'I have also integrated GIPHY for GIF support and Agora for video calling capabilities.',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //Google Docs Clone Desc
+
+  Text googleDocsCloneDesc(BuildContext context, WidgetRef ref) {
+    return Text.rich(
+      TextSpan(
+        text: 'I built a Google Docs clone using ',
+        style: GoogleFonts.josefinSans(
+          fontSize: Dimensions.smallerTextSize,
+          fontWeight: FontWeight.w300,
+          color: Theme.of(context)
+              .colorScheme
+              .onPrimaryContainer
+              .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+        ),
+        children: <TextSpan>[
+          TextSpan(
+            text: 'Flutter ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text: 'for the front-end and',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text: ' NodeJS, Express & MongoDB ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text: 'for the back-end. For state management, I used ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text: 'Riverpod ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text:
+                'and for real-time updates when the document is shared, I utilized ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text: 'SocketIO. ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.smallerTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //Portfolio Desc
+
+  Text portfolioDesc(BuildContext context, WidgetRef ref) {
+    return Text(
+      'Built with the magic of Flutter. Here you can see some of the cool projects I\'ve been working on and get to know a little bit about me. So feel free to browse around, get inspired, and if you\'re feeling friendly, drop me a message. Let\'s create something awesome together!',
+      style: GoogleFonts.josefinSans(
+        fontSize: Dimensions.smallerTextSize,
+        fontWeight: FontWeight.w300,
+        color: Theme.of(context)
+            .colorScheme
+            .onPrimaryContainer
+            .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+      ),
+    );
+  }
+
+  //Who Am I?
+
+  Text whoAmI(BuildContext context, WidgetRef ref) {
+    return Text(
+      'Hey there, I\'m Ekaksh Janweja, currently pursuing BTech in Civil Engineering at DTU but I have a knack for app development. Beyond app development, I actively participate in tech communities like GDSC DTU, Flutter Delhi, and IOSD DTU, where I serve as an App-Dev Co-Lead. It\'s fulfilling to share my knowledge and inspire others to pursue development.',
+      style: GoogleFonts.josefinSans(
+        fontSize: Dimensions.smallerTextSize,
+        fontWeight: FontWeight.w300,
+        height: 2,
+        color: Theme.of(context)
+            .colorScheme
+            .onPrimaryContainer
+            .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.8 : 1),
       ),
     );
   }

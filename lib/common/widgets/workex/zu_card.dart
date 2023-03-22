@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:portfolio_website/common/pages/zu_page.dart';
+import 'package:portfolio_website/common/pages/workex/zu_page.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
 import 'package:portfolio_website/common/widgets/icons/alt_icon_widget.dart';

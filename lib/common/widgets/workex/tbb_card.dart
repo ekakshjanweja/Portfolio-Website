@@ -3,12 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/constants/strings.dart';
-import 'package:portfolio_website/common/pages/tbb_page.dart';
+import 'package:portfolio_website/common/pages/workex/tbb_page.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/launch_url.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
-import 'package:portfolio_website/common/widgets/icons/alt_icon_widget.dart';
-import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 
 class TbbCard extends ConsumerStatefulWidget {

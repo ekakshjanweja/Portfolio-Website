@@ -76,6 +76,9 @@ class $AssetsLogosGen {
   /// File path: assets/logos/hashnode.svg
   String get hashnode => 'assets/logos/hashnode.svg';
 
+  /// File path: assets/logos/insta.svg
+  String get insta => 'assets/logos/insta.svg';
+
   /// File path: assets/logos/linkedin.svg
   String get linkedin => 'assets/logos/linkedin.svg';
 
@@ -127,6 +130,7 @@ class $AssetsLogosGen {
         githubBlack,
         githubWhite,
         hashnode,
+        insta,
         linkedin,
         notion,
         notionWhite,
