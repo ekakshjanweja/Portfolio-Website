@@ -22,9 +22,9 @@ class _NotwhatsappCardState extends ConsumerState<NotwhatsappCard> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
     return Container(
-      width: 300,
-      padding: const EdgeInsets.all(30),
-      margin: const EdgeInsets.only(right: 40, bottom: 40),
+      width: 350,
+      padding: const EdgeInsets.all(25),
+      margin: const EdgeInsets.only(right: 20, bottom: 30),
       decoration: BoxDecoration(
         color: theme == ThemeMode.dark
             ? AppColors().containerColor

@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/constants/strings.dart';
+import 'package:portfolio_website/common/pages/about/about_page.dart';
 import 'package:portfolio_website/common/widgets/icons/icon_widget.dart';
 import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
@@ -89,7 +91,13 @@ class _HeroSmallState extends ConsumerState<HeroSmall> {
                     onExit: (event) => setState(() {
                       nameHover = false;
                     }),
-                    recognizer: TapGestureRecognizer()..onTap = () {},
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.of(context).push(PageTransition(
+                          type: PageTransitionType.fade,
+                          child: const AboutPage(),
+                        ));
+                      },
                     text: ' Ekaksh Janweja. ',
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontSize: Dimensions.mediumTextSize,

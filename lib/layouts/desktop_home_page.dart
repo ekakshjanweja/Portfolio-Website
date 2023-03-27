@@ -30,7 +30,7 @@ class DesktopHomePage extends ConsumerWidget {
                   NavbarLarge(),
 
                   SizedBox(
-                    height: 80,
+                    height: 120,
                   ),
 
                   //Hero
@@ -38,7 +38,7 @@ class DesktopHomePage extends ConsumerWidget {
                   HeroLarge(),
 
                   SizedBox(
-                    height: 80,
+                    height: 60,
                   ),
 
                   //Skills
@@ -46,7 +46,7 @@ class DesktopHomePage extends ConsumerWidget {
                   SkillsLarge(),
 
                   SizedBox(
-                    height: 80,
+                    height: 60,
                   ),
 
                   //Work Experience
@@ -54,7 +54,7 @@ class DesktopHomePage extends ConsumerWidget {
                   WorkEx(),
 
                   SizedBox(
-                    height: 80,
+                    height: 30,
                   ),
 
                   //Projects
@@ -62,7 +62,7 @@ class DesktopHomePage extends ConsumerWidget {
                   ProjectsSection(),
 
                   SizedBox(
-                    height: 80,
+                    height: 30,
                   ),
 
                   //Bottom Bar

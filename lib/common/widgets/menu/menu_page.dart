@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:portfolio_website/common/pages/about/about_page.dart';
+import 'package:portfolio_website/common/pages/blogs/blogs_page.dart';
 import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
@@ -26,7 +29,7 @@ class _MenuPageState extends ConsumerState<MenuPage> {
       body: Center(
         child: Container(
           alignment: Alignment.topCenter,
-          width: !widget.isMobile ? 400 : null,
+          width: !widget.isMobile ? 500 : null,
           padding: const EdgeInsets.symmetric(
             vertical: 30,
             horizontal: 40,
@@ -85,15 +88,22 @@ class _MenuPageState extends ConsumerState<MenuPage> {
                 children: [
                   //About
 
-                  Text(
-                    'About'.toUpperCase(),
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Dimensions.mediumTextSize,
-                          color: theme == ThemeMode.dark
-                              ? AppColors().lightBlueColor
-                              : AppColors().darkBlueColor,
-                        ),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(PageTransition(
+                      type: PageTransitionType.topToBottom,
+                      child: const AboutPage(),
+                    )),
+                    child: Text(
+                      'About'.toUpperCase(),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: Dimensions.mediumTextSize,
+                                color: theme == ThemeMode.dark
+                                    ? AppColors().lightBlueColor
+                                    : AppColors().darkBlueColor,
+                              ),
+                    ),
                   ),
 
                   //Blogs
@@ -102,15 +112,22 @@ class _MenuPageState extends ConsumerState<MenuPage> {
                     height: 40,
                   ),
 
-                  Text(
-                    'Blogs'.toUpperCase(),
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Dimensions.mediumTextSize,
-                          color: theme == ThemeMode.dark
-                              ? AppColors().lightBlueColor
-                              : AppColors().darkBlueColor,
-                        ),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(PageTransition(
+                      type: PageTransitionType.topToBottom,
+                      child: const BlogsPage(),
+                    )),
+                    child: Text(
+                      'Blogs'.toUpperCase(),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: Dimensions.mediumTextSize,
+                                color: theme == ThemeMode.dark
+                                    ? AppColors().lightBlueColor
+                                    : AppColors().darkBlueColor,
+                              ),
+                    ),
                   )
                 ],
               ),

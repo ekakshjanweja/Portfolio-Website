@@ -59,8 +59,8 @@ class _BottomBarState extends ConsumerState<BottomBar> {
         bottom: 30,
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //Logo
 
@@ -74,10 +74,13 @@ class _BottomBarState extends ConsumerState<BottomBar> {
             }),
             child: GestureDetector(
               onTap: () => Navigator.of(context).canPop(),
-              child: SvgPicture.asset(
-                color: isLogo ? AppColors().blueColor : null,
-                theme == ThemeMode.dark ? Assets.logoLight : Assets.logoDark,
-                height: Dimensions.smallTextSize,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: SvgPicture.asset(
+                  color: isLogo ? AppColors().blueColor : null,
+                  theme == ThemeMode.dark ? Assets.logoLight : Assets.logoDark,
+                  height: Dimensions.smallTextSize,
+                ),
               ),
             ),
           ),

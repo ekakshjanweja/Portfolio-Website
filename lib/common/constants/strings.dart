@@ -113,6 +113,16 @@ class Strings {
   static const portfolioGithub =
       'https://github.com/ekakshjanweja/Portfolio-Website';
 
+  //Blog 2
+
+  static const blogTwo =
+      'https://stormej.hashnode.dev/team-black-box-internship-interview-experience';
+
+  //Blog 1
+
+  static const blogOne =
+      'https://stormej.hashnode.dev/a-simple-comparison-between-flutter-react-native';
+
   //ZU Desc
 
   Text zuDesc(BuildContext context, WidgetRef ref) {
@@ -468,7 +478,7 @@ class Strings {
 
   Text whoAmI(BuildContext context, WidgetRef ref) {
     return Text(
-      'Hey there, I\'m Ekaksh Janweja, currently pursuing BTech in Civil Engineering at DTU but I have a knack for app development. Beyond app development, I actively participate in tech communities like GDSC DTU, Flutter Delhi, and IOSD DTU, where I serve as an App-Dev Co-Lead. It\'s fulfilling to share my knowledge and inspire others to pursue development.',
+      'Well hello there, it\'s a pleasure to make your acquaintance! I\'m Ekaksh Janweja, a code-slinging, Valorant-playing, food-loving full-stack mobile app developer and UX designer extraordinaire. I\'ve got a passion for crafting beautiful, user-friendly apps that solve real-world problems, and I\'m always on the lookout for the latest and greatest in tech. But it\'s not just about coding for me - I\'m also a proud member of tech communities like GDSC DTU, Flutter Delhi, and IOSD DTU, where I serve as an App-Dev Co-Lead. I love sharing my knowledge and inspiring others to pursue their passions, whether that\'s through organizing events or mentoring fellow tech enthusiasts. And if you\'re wondering what I\'m up to at the moment, I\'m interning as a Full-Stack App Developer at TeamBlackBox and building dtu.social on the side - because why settle for just one project when you can juggle multiple like a pro?',
       style: GoogleFonts.josefinSans(
         fontSize: Dimensions.smallerTextSize,
         fontWeight: FontWeight.w300,

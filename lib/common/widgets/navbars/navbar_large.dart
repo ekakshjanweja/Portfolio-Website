@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/pages/about/about_page.dart';
+import 'package:portfolio_website/common/pages/blogs/blogs_page.dart';
 import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
@@ -100,11 +101,12 @@ class _NavbarLargeState extends ConsumerState<NavbarLarge> {
                   isBlogs = false;
                 }),
                 child: GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Container(),
-                      )),
+                  onTap: () => Navigator.of(context).push(
+                    PageTransition(
+                      type: PageTransitionType.topToBottom,
+                      child: const BlogsPage(),
+                    ),
+                  ),
                   child: Text(
                     'Blogs',
                     style: Theme.of(context).textTheme.headlineSmall!.copyWith(
