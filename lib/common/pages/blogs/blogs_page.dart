@@ -248,7 +248,7 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
                                             .withOpacity(0.8),
                                       ),
                                       onPressed: () {
-                                        LaunchUrl().launchUrl(Strings.blogTwo);
+                                        LaunchUrl().launchUrl(Strings.blogOne);
                                       },
                                       child: const Text('Read More'),
                                     ),

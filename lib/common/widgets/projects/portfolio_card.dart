@@ -36,22 +36,25 @@ class _PortfolioWebsiteCardState extends ConsumerState<PortfolioWebsiteCard> {
         children: [
           //Heading
 
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            onEnter: (event) => setState(() {
-              isPortfolio = true;
-            }),
-            onExit: (event) => setState(() {
-              isPortfolio = false;
-            }),
-            child: Text(
-              'Portfolio Website',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontSize: Dimensions.mediumTextSize,
-                    color: isPortfolio
-                        ? AppColors().blueColor
-                        : Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
+          GestureDetector(
+            onTap: () => LaunchUrl().launchUrl(Strings.portfolio),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              onEnter: (event) => setState(() {
+                isPortfolio = true;
+              }),
+              onExit: (event) => setState(() {
+                isPortfolio = false;
+              }),
+              child: Text(
+                'Portfolio Website',
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: Dimensions.mediumTextSize,
+                      color: isPortfolio
+                          ? AppColors().blueColor
+                          : Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
+              ),
             ),
           ),
 

@@ -23,6 +23,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
+      title: 'STORMEJ',
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
       themeMode: ref.watch(themeProvider),

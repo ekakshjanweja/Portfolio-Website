@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/pages/workex/zu_page.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
+import 'package:portfolio_website/common/utils/launch_url.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
+
+import '../../constants/strings.dart';
 
 class ZuCard extends ConsumerStatefulWidget {
   const ZuCard({super.key});
@@ -35,22 +38,25 @@ class _ZuCardState extends ConsumerState<ZuCard> {
         children: [
           //Heading
 
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            onEnter: (event) => setState(() {
-              isZu = true;
-            }),
-            onExit: (event) => setState(() {
-              isZu = false;
-            }),
-            child: Text(
-              'ZU',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontSize: Dimensions.mediumTextSize,
-                    color: isZu
-                        ? const Color(0xff8865D9)
-                        : Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
+          GestureDetector(
+            onTap: () => LaunchUrl().launchUrl(Strings.zu),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              onEnter: (event) => setState(() {
+                isZu = true;
+              }),
+              onExit: (event) => setState(() {
+                isZu = false;
+              }),
+              child: Text(
+                'ZU',
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: Dimensions.mediumTextSize,
+                      color: isZu
+                          ? const Color(0xff8865D9)
+                          : Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
+              ),
             ),
           ),
 

@@ -58,7 +58,7 @@ class _HeroSmallState extends ConsumerState<HeroSmall> {
 
         Image.asset(
           Assets.profile.path,
-          scale: 12,
+          scale: 20,
         ),
 
         const SizedBox(

@@ -58,28 +58,34 @@ class _BottomBarState extends ConsumerState<BottomBar> {
       padding: const EdgeInsets.only(
         bottom: 30,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 300,
         children: [
           //Logo
 
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            onEnter: (event) => setState(() {
-              isLogo = true;
-            }),
-            onExit: (event) => setState(() {
-              isLogo = false;
-            }),
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).canPop(),
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: SvgPicture.asset(
-                  color: isLogo ? AppColors().blueColor : null,
-                  theme == ThemeMode.dark ? Assets.logoLight : Assets.logoDark,
-                  height: Dimensions.smallTextSize,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              onEnter: (event) => setState(() {
+                isLogo = true;
+              }),
+              onExit: (event) => setState(() {
+                isLogo = false;
+              }),
+              child: GestureDetector(
+                onTap: () => Navigator.of(context).canPop(),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: SvgPicture.asset(
+                    color: isLogo ? AppColors().blueColor : null,
+                    theme == ThemeMode.dark
+                        ? Assets.logoLight
+                        : Assets.logoDark,
+                    height: Dimensions.smallTextSize,
+                  ),
                 ),
               ),
             ),
@@ -87,14 +93,17 @@ class _BottomBarState extends ConsumerState<BottomBar> {
 
           // Socials
 
-          SizedBox(
-            width: 300,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: socialIcons,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: SizedBox(
+              width: 300,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: socialIcons,
+                ),
               ),
             ),
           )

@@ -39,22 +39,25 @@ class _TbbCardState extends ConsumerState<TbbCard> {
         children: [
           //Heading
 
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            onEnter: (event) => setState(() {
-              istbb = true;
-            }),
-            onExit: (event) => setState(() {
-              istbb = false;
-            }),
-            child: Text(
-              'Team Black Box',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontSize: Dimensions.mediumTextSize,
-                    color: istbb
-                        ? Colors.red
-                        : Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
+          GestureDetector(
+            onTap: () => LaunchUrl().launchUrl(Strings.tbb),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              onEnter: (event) => setState(() {
+                istbb = true;
+              }),
+              onExit: (event) => setState(() {
+                istbb = false;
+              }),
+              child: Text(
+                'Team Black Box',
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: Dimensions.mediumTextSize,
+                      color: istbb
+                          ? Colors.red
+                          : Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
+              ),
             ),
           ),
 

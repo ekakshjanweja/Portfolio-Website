@@ -50,20 +50,6 @@ class _AboutPageState extends ConsumerState<AboutPage> {
               ),
         ),
       ),
-
-      //3
-
-      Text(
-        'Lastly, my mom is my biggest supporter. She\'s always been there for me and I\'m grateful for her love and encouragement.',
-        style: GoogleFonts.josefinSans(
-          fontSize: Dimensions.smallerTextSize,
-          fontWeight: FontWeight.w300,
-          height: 2,
-          color: Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(
-                ref.read(themeProvider) == ThemeMode.dark ? 0.8 : 1,
-              ),
-        ),
-      ),
     ];
 
     return Scaffold(
@@ -206,7 +192,7 @@ class _AboutPageState extends ConsumerState<AboutPage> {
                   const SizedBox(height: 20),
 
                   SizedBox(
-                    height: 300,
+                    height: 200,
                     child: ListView.builder(
                       itemCount: personBehindTheCode.length,
                       itemBuilder: (context, index) => Padding(

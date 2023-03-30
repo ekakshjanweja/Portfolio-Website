@@ -38,7 +38,7 @@ class DesktopHomePage extends ConsumerWidget {
                   HeroLarge(),
 
                   SizedBox(
-                    height: 60,
+                    height: 120,
                   ),
 
                   //Skills

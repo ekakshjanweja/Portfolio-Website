@@ -62,10 +62,10 @@ class _HeroLargeState extends ConsumerState<HeroLarge> {
 
         Image.asset(
           Assets.profile.path,
-          scale: 12,
+          scale: 26,
         ),
 
-        const SizedBox(width: 20),
+        const SizedBox(width: 40),
 
         //Text Section
 
@@ -130,7 +130,7 @@ class _HeroLargeState extends ConsumerState<HeroLarge> {
 
               //Bottom Row
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -9,49 +9,6 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsFontsGen {
-  const $AssetsFontsGen();
-
-  /// File path: assets/fonts/Helvetica Neue LTW0697BlkCnObl.otf
-  String get helveticaNeueLTW0697BlkCnObl =>
-      'assets/fonts/Helvetica Neue LTW0697BlkCnObl.otf';
-
-  /// File path: assets/fonts/Helvetica Neue Medium Extended.otf
-  String get helveticaNeueMediumExtended =>
-      'assets/fonts/Helvetica Neue Medium Extended.otf';
-
-  /// File path: assets/fonts/Helvetica Neue UltraLight.otf
-  String get helveticaNeueUltraLight =>
-      'assets/fonts/Helvetica Neue UltraLight.otf';
-
-  /// File path: assets/fonts/Helvetica Neue W01 66 Medium It.ttf
-  String get helveticaNeueW0166MediumIt =>
-      'assets/fonts/Helvetica Neue W01 66 Medium It.ttf';
-
-  /// File path: assets/fonts/Helvetica Neue W01 77 Bd Cn Obl.ttf
-  String get helveticaNeueW0177BdCnObl =>
-      'assets/fonts/Helvetica Neue W01 77 Bd Cn Obl.ttf';
-
-  /// File path: assets/fonts/Helvetica Neue W01 87 Hv Cn Obl.ttf
-  String get helveticaNeueW0187HvCnObl =>
-      'assets/fonts/Helvetica Neue W01 87 Hv Cn Obl.ttf';
-
-  /// File path: assets/fonts/Helvetica NeueLTW0693BlkExtObl.ttf
-  String get helveticaNeueLTW0693BlkExtObl =>
-      'assets/fonts/Helvetica NeueLTW0693BlkExtObl.ttf';
-
-  /// List of all assets
-  List<String> get values => [
-        helveticaNeueLTW0697BlkCnObl,
-        helveticaNeueMediumExtended,
-        helveticaNeueUltraLight,
-        helveticaNeueW0166MediumIt,
-        helveticaNeueW0177BdCnObl,
-        helveticaNeueW0187HvCnObl,
-        helveticaNeueLTW0693BlkExtObl
-      ];
-}
-
 class $AssetsLogosGen {
   const $AssetsLogosGen();
 
@@ -151,7 +108,6 @@ class $AssetsLogosGen {
 class Assets {
   Assets._();
 
-  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const String iconDark = 'assets/icon_dark.svg';
   static const String iconLight = 'assets/icon_light.svg';
   static const String logoDark = 'assets/logo_dark.svg';
