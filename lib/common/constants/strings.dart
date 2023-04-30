@@ -8,7 +8,7 @@ class Strings {
   //CV
 
   static const cv =
-      'https://drive.google.com/file/d/1MNGJngvbzjOuXSVD-1pDt0qOpubuitQn/view?usp=sharing';
+      'https://drive.google.com/file/d/19ynZ-3O9YaE_BbD-1q5NSc_a2VKkn_bb/view?usp=share_link';
 
   //Twitter
 
