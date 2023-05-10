@@ -192,7 +192,12 @@ class _AboutPageState extends ConsumerState<AboutPage> {
                   const SizedBox(height: 20),
 
                   SizedBox(
-                    height: 200,
+                    height: MediaQuery.of(context).size.width <
+                            Dimensions.mobileWidth + 5
+                        ? MediaQuery.of(context).size.width < 375
+                            ? 350
+                            : 300
+                        : 200,
                     child: ListView.builder(
                       itemCount: personBehindTheCode.length,
                       itemBuilder: (context, index) => Padding(
