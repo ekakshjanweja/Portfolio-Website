@@ -7,7 +7,6 @@ import 'package:portfolio_website/common/utils/launch_url.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
 import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TbbPage extends ConsumerStatefulWidget {
   const TbbPage({super.key});

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio_website/common/widgets/heros/hero_large.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_small.dart';
 import 'package:portfolio_website/common/widgets/navbars/bottom_bar.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_large.dart';

@@ -24,8 +24,8 @@ class ProjectsSection extends ConsumerWidget {
           const SizedBox(
             height: 20,
           ),
-          Wrap(
-            children: const [
+          const Wrap(
+            children: [
               NotwhatsappCard(),
               GoogleDocsCloneCard(),
               PortfolioWebsiteCard()

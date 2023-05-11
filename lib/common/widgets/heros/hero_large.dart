@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/constants/strings.dart';
 import 'package:portfolio_website/common/pages/about/about_page.dart';
@@ -11,7 +10,6 @@ import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class HeroLarge extends ConsumerStatefulWidget {
   const HeroLarge({super.key});

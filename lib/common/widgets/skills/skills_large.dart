@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio_website/common/constants/strings.dart';
 import 'package:portfolio_website/common/widgets/icons/alt_icon_widget.dart';
-import 'package:portfolio_website/common/widgets/icons/icon_widget.dart';
 import 'package:portfolio_website/gen/assets.gen.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';

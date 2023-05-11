@@ -23,8 +23,8 @@ class WorkEx extends ConsumerWidget {
           const SizedBox(
             height: 20,
           ),
-          Wrap(
-            children: const [
+          const Wrap(
+            children: [
               TbbCard(),
               ZuCard(),
             ],

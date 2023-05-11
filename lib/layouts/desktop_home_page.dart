@@ -21,10 +21,10 @@ class DesktopHomePage extends ConsumerWidget {
           child: ScrollConfiguration(
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+            child: const SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
-                children: const [
+                children: [
                   //Navbar
 
                   NavbarLarge(),

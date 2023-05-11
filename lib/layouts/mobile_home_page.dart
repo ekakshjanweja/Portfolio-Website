@@ -20,9 +20,9 @@ class MobileHomePage extends ConsumerWidget {
           child: ScrollConfiguration(
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: SingleChildScrollView(
+            child: const SingleChildScrollView(
               child: Column(
-                children: const [
+                children: [
                   //Navbar
 
                   NavbarSmall(isMobile: true),
