@@ -12,51 +12,53 @@ class MobileHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          alignment: Alignment.topCenter,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: const SingleChildScrollView(
-              child: Column(
-                children: [
-                  //Navbar
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            alignment: Alignment.topCenter,
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: ScrollConfiguration(
+              behavior:
+                  ScrollConfiguration.of(context).copyWith(scrollbars: false),
+              child: const SingleChildScrollView(
+                child: Column(
+                  children: [
+                    //Navbar
 
-                  NavbarSmall(isMobile: true),
+                    NavbarSmall(isMobile: true),
 
-                  SizedBox(height: 30),
+                    SizedBox(height: 30),
 
-                  //Mobile Hero
+                    //Mobile Hero
 
-                  HeroSmall(),
+                    HeroSmall(),
 
-                  SizedBox(
-                    height: 30,
-                  ),
+                    SizedBox(
+                      height: 30,
+                    ),
 
-                  SkillsLarge(),
+                    SkillsLarge(),
 
-                  SizedBox(
-                    height: 30,
-                  ),
+                    SizedBox(
+                      height: 30,
+                    ),
 
-                  WorkEx(),
+                    WorkEx(),
 
-                  SizedBox(
-                    height: 30,
-                  ),
+                    SizedBox(
+                      height: 30,
+                    ),
 
-                  ProjectsSection(),
+                    ProjectsSection(),
 
-                  SizedBox(
-                    height: 60,
-                  ),
+                    SizedBox(
+                      height: 60,
+                    ),
 
-                  BottomBar(),
-                ],
+                    BottomBar(),
+                  ],
+                ),
               ),
             ),
           ),

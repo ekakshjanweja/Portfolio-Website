@@ -14,65 +14,67 @@ class TabletHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Center(
-        child: Container(
-          alignment: Alignment.topCenter,
-          width: 500,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  //Navbar
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            alignment: Alignment.topCenter,
+            width: 500,
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: ScrollConfiguration(
+              behavior:
+                  ScrollConfiguration.of(context).copyWith(scrollbars: false),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    //Navbar
 
-                  currentWidth > 700
-                      ? const NavbarLarge()
-                      : const NavbarSmall(
-                          isMobile: false,
-                        ),
+                    currentWidth > 700
+                        ? const NavbarLarge()
+                        : const NavbarSmall(
+                            isMobile: false,
+                          ),
 
-                  const SizedBox(
-                    height: 60,
-                  ),
+                    const SizedBox(
+                      height: 60,
+                    ),
 
-                  //Hero
+                    //Hero
 
-                  const HeroSmall(),
+                    const HeroSmall(),
 
-                  const SizedBox(
-                    height: 60,
-                  ),
+                    const SizedBox(
+                      height: 60,
+                    ),
 
-                  //Skills
+                    //Skills
 
-                  const SkillsLarge(),
+                    const SkillsLarge(),
 
-                  //Work Experience
+                    //Work Experience
 
-                  const SizedBox(
-                    height: 60,
-                  ),
+                    const SizedBox(
+                      height: 60,
+                    ),
 
-                  const WorkEx(),
+                    const WorkEx(),
 
-                  //Projects
+                    //Projects
 
-                  const SizedBox(
-                    height: 30,
-                  ),
+                    const SizedBox(
+                      height: 30,
+                    ),
 
-                  const ProjectsSection(),
+                    const ProjectsSection(),
 
-                  const SizedBox(
-                    height: 30,
-                  ),
+                    const SizedBox(
+                      height: 30,
+                    ),
 
-                  const BottomBar(),
-                ],
+                    const BottomBar(),
+                  ],
+                ),
               ),
             ),
           ),
