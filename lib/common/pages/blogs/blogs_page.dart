@@ -38,109 +38,107 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
                 child: ScrollConfiguration(
                   behavior: ScrollConfiguration.of(context)
                       .copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            //Close Button
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          //Close Button
 
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondaryContainer,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(
+                                  Icons.close,
+                                  size: Dimensions.smallerTextSize,
                                 ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.close,
-                                    size: Dimensions.smallerTextSize,
+                              ),
+                            ),
+                          ),
+
+                          //Heading
+
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 10, left: 30),
+                            child: Text(
+                              'Blogs',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .copyWith(
+                                    fontSize: Dimensions.largeTextSize,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
                                   ),
-                                ),
-                              ),
                             ),
+                          ),
+                        ],
+                      ),
 
-                            //Heading
+                      const SizedBox(height: 40),
 
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 10, left: 30),
-                              child: Text(
-                                'Blogs',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(
-                                      fontSize: Dimensions.largeTextSize,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimaryContainer,
-                                    ),
+                      //Blog Cards
+
+                      Query(
+                        options: QueryOptions(document: gql("""{
+                                  user(username: "stormej") {
+                                  publication {
+                              posts(page: 0) {
+                                _id
+                                cuid
+                                coverImage
+                                title
+                                contentMarkdown
+                              }
+                                  }
+                                  }
+                                }""")),
+                        builder: (result, {fetchMore, refetch}) {
+                          if (result.data != null) {
+                            List res =
+                                result.data!['user']['publication']['posts'];
+
+                            return SizedBox(
+                              width: 350,
+                              height: 550,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                primary: false,
+                                dragStartBehavior: DragStartBehavior.down,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: res.length,
+                                itemBuilder: (context, index) {
+                                  final test = PostModel(
+                                    coverImage: res[index]['coverImage'],
+                                    title: res[index]['title'],
+                                    contentMarkdown: res[index]
+                                        ['contentMarkdown'],
+                                  );
+
+                                  return Container(
+                                    margin: const EdgeInsets.only(bottom: 20),
+                                    child: BlogCard(post: test),
+                                  );
+                                },
                               ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 40),
-
-                        //Blog Cards
-
-                        Query(
-                          options: QueryOptions(document: gql("""{
-                                    user(username: "stormej") {
-                                    publication {
-                                posts(page: 0) {
-                                  _id
-                                  cuid
-                                  coverImage
-                                  title
-                                  contentMarkdown
-                                }
-                                    }
-                                    }
-                                  }""")),
-                          builder: (result, {fetchMore, refetch}) {
-                            if (result.data != null) {
-                              List res =
-                                  result.data!['user']['publication']['posts'];
-
-                              return SizedBox(
-                                width: 350,
-                                height: 600,
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  primary: false,
-                                  dragStartBehavior: DragStartBehavior.down,
-                                  itemCount: res.length,
-                                  itemBuilder: (context, index) {
-                                    final test = PostModel(
-                                      coverImage: res[index]['coverImage'],
-                                      title: res[index]['title'],
-                                      contentMarkdown: res[index]
-                                          ['contentMarkdown'],
-                                    );
-
-                                    return Container(
-                                      margin: const EdgeInsets.only(bottom: 20),
-                                      child: BlogCard(post: test),
-                                    );
-                                  },
-                                ),
-                              );
-                            }
-                            return const CircularProgressIndicator();
-                          },
-                        ),
-                      ],
-                    ),
+                            );
+                          }
+                          return const CircularProgressIndicator();
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
