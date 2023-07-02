@@ -31,7 +31,7 @@ class _ZuPageState extends ConsumerState<ZuPage> {
               ? AppColors().containerColor
               : AppColors().containerColorLight,
           child: SizedBox(
-            width: 600,
+            width: 800,
             child: ScrollConfiguration(
               behavior:
                   ScrollConfiguration.of(context).copyWith(scrollbars: false),

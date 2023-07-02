@@ -22,7 +22,7 @@ class _NotwhatsappCardState extends ConsumerState<NotwhatsappCard> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
     return Container(
-      width: 350,
+      width: 200,
       padding: const EdgeInsets.all(25),
       margin: const EdgeInsets.only(right: 20, bottom: 30),
       decoration: BoxDecoration(
@@ -127,11 +127,11 @@ class _NotwhatsappCardState extends ConsumerState<NotwhatsappCard> {
 
           //Details
 
-          const SizedBox(height: 20),
+          // const SizedBox(height: 20),
 
-          Strings().notWhatsappDesc(context, ref),
+          // Strings().notWhatsappDesc(context, ref),
 
-          const SizedBox(height: 20),
+          // const SizedBox(height: 20),
         ],
       ),
     );

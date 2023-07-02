@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio_website/common/constants/strings.dart';
+
+
 import 'package:portfolio_website/common/theme/app_colors.dart';
-import 'package:portfolio_website/common/utils/launch_url.dart';
+
 import 'package:portfolio_website/common/utils/providers/providers.dart';
-import 'package:portfolio_website/gen/assets.gen.dart';
+
 import 'package:portfolio_website/responsive/dimensions.dart';
 
 class GoogleDocsCloneCard extends ConsumerStatefulWidget {
@@ -22,7 +22,6 @@ class _GoogleDocsCloneCardState extends ConsumerState<GoogleDocsCloneCard> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
     return Container(
-      width: 350,
       padding: const EdgeInsets.all(25),
       margin: const EdgeInsets.only(bottom: 30),
       decoration: BoxDecoration(
@@ -74,64 +73,75 @@ class _GoogleDocsCloneCardState extends ConsumerState<GoogleDocsCloneCard> {
 
           //Links
 
-          Wrap(
-            children: [
-              //Apk
-
-              Padding(
-                padding: const EdgeInsets.only(right: 10, bottom: 10),
-                child: FilledButton.tonalIcon(
-                  style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      backgroundColor: Theme.of(context)
-                          .colorScheme
-                          .tertiaryContainer
-                          .withOpacity(0.4)),
-                  onPressed: () {
-                    LaunchUrl().launchUrl(Strings.googleDocsVideo);
-                  },
-                  icon: const Icon(
-                    Icons.movie,
-                    size: Dimensions.smallerTextSize,
+          FilledButton.tonal(
+            onPressed: () {},
+            child: Text(
+              'Show More',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    fontSize: Dimensions.smallerTextSize,
                   ),
-                  label: const Text('Video'),
-                ),
-              ),
-
-              //Github
-
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: FilledButton.tonalIcon(
-                  style: FilledButton.styleFrom(
-                      elevation: 0,
-                      padding: const EdgeInsets.all(20),
-                      backgroundColor: Theme.of(context)
-                          .colorScheme
-                          .tertiaryContainer
-                          .withOpacity(0.4)),
-                  onPressed: () {
-                    LaunchUrl().launchUrl(Strings.googleDocsGithub);
-                  },
-                  icon: SvgPicture.asset(
-                    theme == ThemeMode.dark
-                        ? Assets.logos.githubWhite
-                        : Assets.logos.githubBlack,
-                    height: Dimensions.smallerTextSize,
-                  ),
-                  label: const Text('GitHub'),
-                ),
-              ),
-            ],
+            ),
           ),
 
-          //Details
+          // Wrap(
+          //   children: [
+          //     //Apk
 
-          const SizedBox(height: 20),
+          //     Padding(
+          //       padding: const EdgeInsets.only(right: 10, bottom: 10),
+          //       child: FilledButton.tonalIcon(
+          //         style: FilledButton.styleFrom(
+          //             padding: const EdgeInsets.all(20),
+          //             backgroundColor: Theme.of(context)
+          //                 .colorScheme
+          //                 .tertiaryContainer
+          //                 .withOpacity(0.4)),
+          //         onPressed: () {
+          //           LaunchUrl().launchUrl(Strings.googleDocsVideo);
+          //         },
+          //         icon: const Icon(
+          //           Icons.movie,
+          //           size: Dimensions.smallerTextSize,
+          //         ),
+          //         label: const Text('Video'),
+          //       ),
+          //     ),
 
-          Strings().googleDocsCloneDesc(context, ref),
+          //     //Github
 
-          const SizedBox(height: 20),
+          //     Padding(
+          //       padding: const EdgeInsets.only(bottom: 10),
+          //       child: FilledButton.tonalIcon(
+          //         style: FilledButton.styleFrom(
+          //             elevation: 0,
+          //             padding: const EdgeInsets.all(20),
+          //             backgroundColor: Theme.of(context)
+          //                 .colorScheme
+          //                 .tertiaryContainer
+          //                 .withOpacity(0.4)),
+          //         onPressed: () {
+          //           LaunchUrl().launchUrl(Strings.googleDocsGithub);
+          //         },
+          //         icon: SvgPicture.asset(
+          //           theme == ThemeMode.dark
+          //               ? Assets.logos.githubWhite
+          //               : Assets.logos.githubBlack,
+          //           height: Dimensions.smallerTextSize,
+          //         ),
+          //         label: const Text('GitHub'),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+
+          // //Details
+
+          // const SizedBox(height: 20),
+
+          // Strings().googleDocsCloneDesc(context, ref),
+
+          // const SizedBox(height: 20),
         ],
       ),
     );

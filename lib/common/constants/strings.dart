@@ -8,7 +8,7 @@ class Strings {
   //CV
 
   static const cv =
-      'https://drive.google.com/file/d/19ynZ-3O9YaE_BbD-1q5NSc_a2VKkn_bb/view?usp=share_link';
+      'https://drive.google.com/file/d/1JBoUUrkOV0H3LnLFNcUy-uhhjMAnWRiV/view?usp=sharing';
 
   //Twitter
 
@@ -74,6 +74,11 @@ class Strings {
 
   static const takeASipPlaystore =
       'https://play.google.com/store/apps/details?id=app.takeasip';
+
+  //I wont forget
+
+  static const iWontForgetPlaystore =
+      'https://play.google.com/store/apps/details?id=app.iwontforget';
 
   //Zu
 
@@ -286,12 +291,12 @@ class Strings {
     );
   }
 
-  //Not Whatsapp Desc
+  //Land Blocs Desc
 
-  Text notWhatsappDesc(BuildContext context, WidgetRef ref) {
+  Text landBlocksDesc(BuildContext context, WidgetRef ref) {
     return Text.rich(
       TextSpan(
-        text: 'NotWhatsapp is my messaging app project built using ',
+        text: 'Land Blocks is a geo mapping app in which I used ',
         style: GoogleFonts.josefinSans(
           fontSize: Dimensions.smallerTextSize,
           fontWeight: FontWeight.w300,
@@ -302,7 +307,7 @@ class Strings {
         ),
         children: <TextSpan>[
           TextSpan(
-            text: 'Flutter and Firebase ',
+            text: 'react-native-skia (by shopify) ',
             style: GoogleFonts.josefinSans(
               fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
@@ -310,50 +315,7 @@ class Strings {
             ),
           ),
           TextSpan(
-            text:
-                ', specifically firebase_auth for authentication and cloud_firestore for database management. I use ',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w300,
-              color: Theme.of(context)
-                  .colorScheme
-                  .onPrimaryContainer
-                  .withOpacity(
-                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
-            ),
-          ),
-          TextSpan(
-            text: 'Riverpod for state management ',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w400,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
-          ),
-          TextSpan(
-            text: 'and have implemented ',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w300,
-              color: Theme.of(context)
-                  .colorScheme
-                  .onPrimaryContainer
-                  .withOpacity(
-                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
-            ),
-          ),
-          TextSpan(
-            text:
-                'group chat, GIFs, emojis, status updates, video calls, and reply functionality. ',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w400,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
-          ),
-          TextSpan(
-            text:
-                'I have also integrated GIPHY for GIF support and Agora for video calling capabilities.',
+            text: 'ibrary to construct a polygon with location coordinates.',
             style: GoogleFonts.josefinSans(
               fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
@@ -369,6 +331,102 @@ class Strings {
     );
   }
 
+  //Not Whatsapp Desc
+
+  Text notWhatsappDesc(BuildContext context, WidgetRef ref) {
+    return Text.rich(
+      TextSpan(
+        text: 'NotWhatsapp is my messaging app project built using ',
+        style: GoogleFonts.josefinSans(
+          fontSize: Dimensions.mediumTextSize,
+          fontWeight: FontWeight.w300,
+          color: Theme.of(context)
+              .colorScheme
+              .onPrimaryContainer
+              .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+        ),
+        children: <TextSpan>[
+          TextSpan(
+            text: 'Flutter and Firebase ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text:
+                ', specifically firebase_auth for authentication and cloud_firestore for database management. I use ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text: 'Riverpod for state management ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text: 'and have implemented ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+          TextSpan(
+            text:
+                'group chat, GIFs, emojis, status updates, video calls, and reply functionality. ',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          TextSpan(
+            text:
+                'I have also integrated GIPHY for GIF support and Agora for video calling capabilities.',
+            style: GoogleFonts.josefinSans(
+              fontSize: Dimensions.mediumTextSize,
+              fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimaryContainer
+                  .withOpacity(
+                      ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //dtu.social
+
+  static const dtuSocial =
+      "### What is DTU.Social?\n[dtu.social](http://DTU.Social) is a platform that connects college students, helping them find like-minded individuals with similar interests and aspirations. It simplifies communication between strangers, fostering meaningful connections and friendships. By joining Dtu.Social, students become part of a vibrant community that enhances their college experience and opens up exciting opportunities for growth.\n";
+
+  //dtu.social insta
+
+  static const dsInsta = 'https://www.instagram.com/dtu.social/';
+
+  //dtu.social website
+
+  static const dsWebsite = 'https://www.dtu.social/';
+
   //Google Docs Clone Desc
 
   Text googleDocsCloneDesc(BuildContext context, WidgetRef ref) {
@@ -376,7 +434,7 @@ class Strings {
       TextSpan(
         text: 'I built a Google Docs clone using ',
         style: GoogleFonts.josefinSans(
-          fontSize: Dimensions.smallerTextSize,
+          fontSize: Dimensions.mediumTextSize,
           fontWeight: FontWeight.w300,
           color: Theme.of(context)
               .colorScheme
@@ -387,7 +445,7 @@ class Strings {
           TextSpan(
             text: 'Flutter ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -395,7 +453,7 @@ class Strings {
           TextSpan(
             text: 'for the front-end and',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -407,7 +465,7 @@ class Strings {
           TextSpan(
             text: ' NodeJS, Express & MongoDB ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -415,7 +473,7 @@ class Strings {
           TextSpan(
             text: 'for the back-end. For state management, I used ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -427,7 +485,7 @@ class Strings {
           TextSpan(
             text: 'Riverpod ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -436,7 +494,7 @@ class Strings {
             text:
                 'and for real-time updates when the document is shared, I utilized ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -448,7 +506,7 @@ class Strings {
           TextSpan(
             text: 'SocketIO. ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
+              fontSize: Dimensions.mediumTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),

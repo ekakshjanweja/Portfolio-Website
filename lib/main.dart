@@ -41,10 +41,12 @@ class MyApp extends ConsumerWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const ResponsiveLayout(
-        mobile: MobileHomePage(),
-        tablet: TabletHomePage(),
-        desktop: DesktopHomePage(),
+      home: const SelectionArea(
+        child: ResponsiveLayout(
+          mobile: MobileHomePage(),
+          tablet: TabletHomePage(),
+          desktop: DesktopHomePage(),
+        ),
       ),
     );
   }

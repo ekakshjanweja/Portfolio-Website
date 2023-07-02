@@ -153,7 +153,7 @@ class _HeroLargeState extends ConsumerState<HeroLarge> {
                         LaunchUrl().launchUrl(Strings.cv);
                       },
                       child: Text(
-                        'Download Resume'.toUpperCase(),
+                        'DOWNLOAD RESUME',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               fontSize: Dimensions.smallerTextSize,
                               color: resumeHover

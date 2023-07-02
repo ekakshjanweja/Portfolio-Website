@@ -73,7 +73,7 @@ class _ZuCardState extends ConsumerState<ZuCard> {
                     color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
               Text(
-                'OCT\'21 - JAN\'22',
+                'Oct\'21 - Jan\'22',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       fontSize: Dimensions.smallerTextSize,
                       color: Theme.of(context)
@@ -108,7 +108,7 @@ class _ZuCardState extends ConsumerState<ZuCard> {
               onPressed: () {
                 Navigator.of(context).push(
                   PageTransition(
-                    type: PageTransitionType.topToBottom,
+                    type: PageTransitionType.fade,
                     child: const ZuPage(),
                   ),
                 );

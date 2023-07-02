@@ -33,9 +33,12 @@ dependencies:
     sdk: flutter
   flutter_gen: ^5.2.0
   flutter_gen_runner: ^5.2.0
+  flutter_markdown: ^0.6.15+1
   flutter_riverpod: ^2.3.0
   flutter_svg: ^1.1.3
+  font_awesome_flutter: ^10.5.0
   google_fonts: ^4.0.4
+  graphql_flutter: ^5.1.2
   mailto: ^2.0.0
   page_transition: ^2.0.9
   url_launcher: ^6.1.10

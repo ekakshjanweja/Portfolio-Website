@@ -68,14 +68,14 @@ class _TbbCardState extends ConsumerState<TbbCard> {
           Wrap(
             children: [
               Text(
-                'Full Stack Intern',
+                'Full-Stack Mobile Intern',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: Dimensions.smallerTextSize,
                     color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
               const SizedBox(width: 40),
               Text(
-                'JAN\'23 - Present',
+                'Jan\'23 - June\'23',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       fontSize: Dimensions.smallerTextSize,
                       color: Theme.of(context)
@@ -87,59 +87,59 @@ class _TbbCardState extends ConsumerState<TbbCard> {
             ],
           ),
 
-          const SizedBox(height: 20),
+          // //Projects
 
-          //Projects
+          // Text(
+          //   'Projects',
+          //   style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          //         fontSize: Dimensions.smallTextSize,
+          //         color: Theme.of(context).colorScheme.onPrimaryContainer,
+          //       ),
+          // ),
 
-          Text(
-            'Projects',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontSize: Dimensions.smallTextSize,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                ),
-          ),
+          // const SizedBox(height: 20),
 
-          const SizedBox(height: 20),
-
-          Wrap(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10, bottom: 10),
-                child: FilledButton.tonal(
-                  style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      backgroundColor: Theme.of(context)
-                          .colorScheme
-                          .tertiaryContainer
-                          .withOpacity(0.4)),
-                  onPressed: () {
-                    LaunchUrl().launchUrl(Strings.takeASip);
-                  },
-                  child: const Text('Take A Sip'),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: FilledButton.tonal(
-                  style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
-                      backgroundColor: Theme.of(context)
-                          .colorScheme
-                          .tertiaryContainer
-                          .withOpacity(0.4)),
-                  onPressed: () {},
-                  child: const Text('I won\'t forget'),
-                ),
-              ),
-            ],
-          ),
+          // Wrap(
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.only(right: 10, bottom: 10),
+          //       child: FilledButton.tonal(
+          //         style: FilledButton.styleFrom(
+          //             padding: const EdgeInsets.all(20),
+          //             backgroundColor: Theme.of(context)
+          //                 .colorScheme
+          //                 .tertiaryContainer
+          //                 .withOpacity(0.4)),
+          //         onPressed: () {
+          //           LaunchUrl().launchUrl(Strings.takeASip);
+          //         },
+          //         child: const Text('Take A Sip'),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.only(bottom: 10),
+          //       child: FilledButton.tonal(
+          //         style: FilledButton.styleFrom(
+          //             padding: const EdgeInsets.all(20),
+          //             backgroundColor: Theme.of(context)
+          //                 .colorScheme
+          //                 .tertiaryContainer
+          //                 .withOpacity(0.4)),
+          //         onPressed: () {
+          //           LaunchUrl().launchUrl(Strings.iWontForgetPlaystore);
+          //         },
+          //         child: const Text('I won\'t forget'),
+          //       ),
+          //     ),
+          //   ],
+          // ),
 
           //Body
 
           const SizedBox(height: 20),
 
           Text(
-            'At Team Black Box, I am gaining valuable experience working on innovative projects and cutting-edge technology. Building intuitive apps and utilizing modern technologies like React Native and api like compromise.cool, I\'m excited to continue creating amazing products with the team.',
+            'In just six months, I embarked on an incredible journey of growth, honing valuable skills while building and breaking things. Working alongside an extraordinary team brought immense joy and provided a supportive environment for my development. The mentorship I received was nothing short of amazing. This experience added numerous valuable tools to my skill set, equipping me for future challenges. It was an unforgettable adventure filled with fun, learning, and personal growth.',
             style: GoogleFonts.josefinSans(
               fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
@@ -159,7 +159,7 @@ class _TbbCardState extends ConsumerState<TbbCard> {
               onPressed: () {
                 Navigator.of(context).push(
                   PageTransition(
-                    type: PageTransitionType.topToBottom,
+                    type: PageTransitionType.fade,
                     child: const TbbPage(),
                   ),
                 );
