@@ -113,6 +113,7 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
 
                               return SizedBox(
                                 width: 350,
+                                height: 800,
                                 child: ListView.builder(
                                   shrinkWrap: true,
                                   itemCount: res.length,
