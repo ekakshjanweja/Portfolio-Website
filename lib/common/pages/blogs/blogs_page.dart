@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -113,9 +114,11 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
 
                               return SizedBox(
                                 width: 350,
-                                height: 800,
+                                height: 600,
                                 child: ListView.builder(
                                   shrinkWrap: true,
+                                  primary: false,
+                                  dragStartBehavior: DragStartBehavior.down,
                                   itemCount: res.length,
                                   itemBuilder: (context, index) {
                                     final test = PostModel(
@@ -125,7 +128,10 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
                                           ['contentMarkdown'],
                                     );
 
-                                    return BlogCard(post: test);
+                                    return Container(
+                                      margin: const EdgeInsets.only(bottom: 20),
+                                      child: BlogCard(post: test),
+                                    );
                                   },
                                 ),
                               );
