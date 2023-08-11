@@ -111,8 +111,7 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
                                 result.data!['user']['publication']['posts'];
 
                             return SizedBox(
-                              width: 350,
-                              height: 550,
+                              height: MediaQuery.of(context).size.height * 0.7,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 primary: false,
@@ -159,75 +158,154 @@ class BlogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      margin: const EdgeInsets.only(bottom: 20),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondaryContainer,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        children: [
-          //Image 1
+    if (MediaQuery.of(context).size.width > Dimensions.desktopWidth) {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.secondaryContainer,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: [
+            //Image 1
 
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-            child: SizedBox(
-              child: Image.network(
-                post.coverImage,
-                fit: BoxFit.fitHeight,
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+              ),
+              child: SizedBox(
+                width: 350,
+                height: 350 / 1.904761904761905,
+                child: Image.network(
+                  post.coverImage,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
-          ),
 
-          //Blog Info
+            //Blog Info
 
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //Title
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Title
 
-                Text(
-                  post.title,
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimaryContainer,
-                      ),
-                ),
-
-                Hero(
-                  tag: 'blogpage',
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: FilledButton.tonal(
-                      style: FilledButton.styleFrom(
-                        padding: const EdgeInsets.all(20),
-                        backgroundColor: Theme.of(context)
-                            .colorScheme
-                            .background
-                            .withOpacity(0.8),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          PageTransition(
-                            type: PageTransitionType.fade,
-                            child: MarkdownView(post: post),
+                    Text(
+                      post.title,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                           ),
-                        );
-                      },
-                      child: const Text('Read More'),
+                    ),
+
+                    Hero(
+                      tag: 'blogpage',
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: FilledButton.tonal(
+                          style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.all(20),
+                            backgroundColor: Theme.of(context)
+                                .colorScheme
+                                .background
+                                .withOpacity(0.8),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                child: MarkdownView(post: post),
+                              ),
+                            );
+                          },
+                          child: const Text('Read More'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        width: 350,
+        margin: const EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.secondaryContainer,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            //Image 1
+
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              child: SizedBox(
+                child: Image.network(
+                  post.coverImage,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+
+            //Blog Info
+
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //Title
+
+                  Text(
+                    post.title,
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
+                        ),
+                  ),
+
+                  Hero(
+                    tag: 'blogpage',
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: FilledButton.tonal(
+                        style: FilledButton.styleFrom(
+                          padding: const EdgeInsets.all(20),
+                          backgroundColor: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.8),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: MarkdownView(post: post),
+                            ),
+                          );
+                        },
+                        child: const Text('Read More'),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    }
   }
 }

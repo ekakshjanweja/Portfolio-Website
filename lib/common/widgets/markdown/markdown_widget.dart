@@ -171,10 +171,22 @@ class MarkdownWidget extends StatelessWidget {
             .textTheme
             .titleLarge!
             .copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),
+        code: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
         h1Padding: const EdgeInsets.symmetric(vertical: 20),
         h2Padding: const EdgeInsets.symmetric(vertical: 20),
         h3Padding: const EdgeInsets.symmetric(vertical: 20),
         pPadding: const EdgeInsets.symmetric(vertical: 10),
+        codeblockPadding: const EdgeInsets.symmetric(
+          vertical: 20,
+          horizontal: 20,
+        ),
+        codeblockDecoration: BoxDecoration(
+          color:
+              Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
       imageBuilder: (uri, title, alt) => Image.network(uri.toString()),
     );
