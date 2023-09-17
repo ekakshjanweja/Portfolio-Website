@@ -236,7 +236,7 @@ class _AboutPageState extends ConsumerState<AboutPage> {
                     const SizedBox(height: 20),
 
                     Text(
-                      'At the moment, I am actively involved in the development of a proximity chat app called dtu.social, working alongside a friend. Our primary goal is to enhance communication and foster stronger connections among students. Additionally, I hold the role of Co-Lead for App Development at GDSC DTU (Google Developer Student Clubs) and Co-Head of App Development at IOSD DTU. These positions allow me to further contribute to the field of app development and support the growth of these organizations.',
+                      'At the moment, I am actively involved in the development of a proximity chat app called dtu.social, working alongside a friend. Our primary goal is to enhance communication and foster stronger connections among students. Additionally, I hold the role of Lead for App Development at GDSC DTU (Google Developer Student Clubs) and Co-Head of App Development at IOSD DTU. These positions allow me to further contribute to the field of app development and support the growth of these organizations.',
                       style: GoogleFonts.josefinSans(
                         fontSize: Dimensions.smallerTextSize,
                         fontWeight: FontWeight.w300,
