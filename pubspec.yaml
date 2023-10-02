@@ -45,8 +45,19 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^2.0.0
+  icons_launcher: ^2.1.4
   flutter_test:
     sdk: flutter
+
+icons_launcher:
+  image_path: "assets/icon.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+    web:
+      enable: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

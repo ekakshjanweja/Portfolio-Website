@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio_website/common/widgets/blog/blog_mini.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_small.dart';
 import 'package:portfolio_website/common/widgets/navbars/bottom_bar.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_small.dart';
@@ -37,6 +38,16 @@ class MobileHomePage extends ConsumerWidget {
                     SizedBox(
                       height: 30,
                     ),
+
+                    //Blogs
+
+                    BlogMini(),
+
+                    SizedBox(
+                      height: 30,
+                    ),
+
+                    //Skills
 
                     SkillsLarge(),
 

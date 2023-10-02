@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio_website/common/widgets/blog/blog_mini.dart';
 import 'package:portfolio_website/common/widgets/heros/hero_large.dart';
 import 'package:portfolio_website/common/widgets/navbars/bottom_bar.dart';
 import 'package:portfolio_website/common/widgets/navbars/navbar_large.dart';
@@ -38,7 +39,15 @@ class DesktopHomePage extends ConsumerWidget {
                   HeroLarge(),
 
                   SizedBox(
-                    height: 120,
+                    height: 80,
+                  ),
+
+                  //Blog Titles
+
+                  BlogMini(),
+
+                  SizedBox(
+                    height: 80,
                   ),
 
                   //Skills
@@ -46,7 +55,7 @@ class DesktopHomePage extends ConsumerWidget {
                   SkillsLarge(),
 
                   SizedBox(
-                    height: 60,
+                    height: 80,
                   ),
 
                   //Work Experience
