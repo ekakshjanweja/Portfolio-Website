@@ -8,8 +8,8 @@ class Dimensions {
 
   //Text Size Dimensions
 
-  static const double smallerTextSize = 18;
-  static const double smallTextSize = 20;
-  static const double mediumTextSize = 24;
-  static const double largeTextSize = 28;
+  static const double smallerTextSize = 14;
+  static const double smallTextSize = 16;
+  static const double mediumTextSize = 20;
+  static const double largeTextSize = 24;
 }

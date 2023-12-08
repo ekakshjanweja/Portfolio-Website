@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/pages/workex/zu_page.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
@@ -24,14 +23,13 @@ class _ZuCardState extends ConsumerState<ZuCard> {
     final theme = ref.watch(themeProvider);
 
     return Container(
-      width: 350,
-      padding: const EdgeInsets.all(25),
-      margin: const EdgeInsets.only(bottom: 30),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: theme == ThemeMode.dark
             ? AppColors().containerColor
             : AppColors().containerColorLight,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,9 +47,9 @@ class _ZuCardState extends ConsumerState<ZuCard> {
                 isZu = false;
               }),
               child: Text(
-                'ZU',
+                'Zu',
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: Dimensions.mediumTextSize,
+                      fontSize: Dimensions.smallTextSize,
                       color: isZu
                           ? const Color(0xff8865D9)
                           : Theme.of(context).colorScheme.onPrimaryContainer,
@@ -60,14 +58,15 @@ class _ZuCardState extends ConsumerState<ZuCard> {
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           //Sub Heading
 
           Wrap(
+            spacing: 10,
             children: [
               Text(
-                'Flutter Development Intern',
+                'Flutter Intern',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: Dimensions.smallerTextSize,
                     color: Theme.of(context).colorScheme.onPrimaryContainer),
@@ -85,22 +84,20 @@ class _ZuCardState extends ConsumerState<ZuCard> {
             ],
           ),
 
-          const SizedBox(height: 20),
-
           //Body
 
-          Text(
-            'ZuPay is an investing cum learning app for teenagers. It’s a platform where a teenager can do all sorts of things from learning about investment to actually investing in the market and buying real stocks.',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w300,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
-          ),
+          // Text(
+          //   'ZuPay is an investing cum learning app for teenagers. It’s a platform where a teenager can do all sorts of things from learning about investment to actually investing in the market and buying real stocks.',
+          //   style: GoogleFonts.josefinSans(
+          //     fontSize: Dimensions.smallerTextSize,
+          //     fontWeight: FontWeight.w300,
+          //     color: Theme.of(context).colorScheme.onPrimaryContainer,
+          //   ),
+          // ),
 
           //Button
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           Hero(
             tag: 'zu',

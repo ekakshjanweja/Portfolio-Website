@@ -79,8 +79,6 @@ class BlogTile extends StatelessWidget {
                                 ),
                           ),
                         ),
-
-                        const SizedBox(width: 20),
                       ],
                     ),
                   ),

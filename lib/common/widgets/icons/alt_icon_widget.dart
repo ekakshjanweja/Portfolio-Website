@@ -50,15 +50,15 @@ class _AltIconWidgetState extends ConsumerState<AltIconWidget> {
                     : 0.8,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(
-                  width: 1,
-                  color: theme == ThemeMode.dark
-                      ? AppColors().lightBlueColor.withOpacity(0.3)
-                      : AppColors().darkBlueColor.withOpacity(0.3),
-                ),
-              ),
+              // decoration: BoxDecoration(
+              //   borderRadius: BorderRadius.circular(10),
+              //   border: Border.all(
+              //     width: 1,
+              //     color: theme == ThemeMode.dark
+              //         ? AppColors().lightBlueColor.withOpacity(0.3)
+              //         : AppColors().darkBlueColor.withOpacity(0.3),
+              //   ),
+              // ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,

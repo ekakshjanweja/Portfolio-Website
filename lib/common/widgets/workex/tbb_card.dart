@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/constants/strings.dart';
 import 'package:portfolio_website/common/pages/workex/tbb_page.dart';
@@ -25,9 +24,8 @@ class _TbbCardState extends ConsumerState<TbbCard> {
     final theme = ref.watch(themeProvider);
 
     return Container(
-      width: 350,
-      padding: const EdgeInsets.all(25),
-      margin: const EdgeInsets.only(right: 20, bottom: 30),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.only(right: 10, bottom: 10),
       decoration: BoxDecoration(
         color: theme == ThemeMode.dark
             ? AppColors().containerColor
@@ -52,7 +50,7 @@ class _TbbCardState extends ConsumerState<TbbCard> {
               child: Text(
                 'Team Black Box',
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: Dimensions.mediumTextSize,
+                      fontSize: Dimensions.smallTextSize,
                       color: istbb
                           ? Colors.red
                           : Theme.of(context).colorScheme.onPrimaryContainer,
@@ -61,21 +59,21 @@ class _TbbCardState extends ConsumerState<TbbCard> {
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           //Sub Heading
 
           Wrap(
             children: [
               Text(
-                'Full-Stack Mobile Intern',
+                'Mobile Intern',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: Dimensions.smallerTextSize,
                     color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
-              const SizedBox(width: 40),
+              const SizedBox(width: 20),
               Text(
-                'Jan\'23 - June\'23',
+                'Jan\'23 - Jun\'23',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       fontSize: Dimensions.smallerTextSize,
                       color: Theme.of(context)
@@ -136,22 +134,22 @@ class _TbbCardState extends ConsumerState<TbbCard> {
 
           //Body
 
-          const SizedBox(height: 20),
+          // const SizedBox(height: 20),
 
-          Text(
-            'In just six months, I embarked on an incredible journey of growth, honing valuable skills while building and breaking things. Working alongside an extraordinary team brought immense joy and provided a supportive environment for my development. The mentorship I received was nothing short of amazing. This experience added numerous valuable tools to my skill set, equipping me for future challenges. It was an unforgettable adventure filled with fun, learning, and personal growth.',
-            style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.smallerTextSize,
-              fontWeight: FontWeight.w300,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
-          ),
+          // Text(
+          //   'In just six months, I embarked on an incredible journey of growth, honing valuable skills while building and breaking things. Working alongside an extraordinary team brought immense joy and provided a supportive environment for my development. The mentorship I received was nothing short of amazing. This experience added numerous valuable tools to my skill set, equipping me for future challenges. It was an unforgettable adventure filled with fun, learning, and personal growth.',
+          //   style: GoogleFonts.josefinSans(
+          //     fontSize: Dimensions.smallerTextSize,
+          //     fontWeight: FontWeight.w300,
+          //     color: Theme.of(context).colorScheme.onPrimaryContainer,
+          //   ),
+          // ),
 
-          const SizedBox(height: 20),
+          // const SizedBox(height: 10),
 
           //Button
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           Hero(
             tag: 'tbb',

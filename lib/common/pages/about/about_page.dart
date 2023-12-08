@@ -169,45 +169,45 @@ class _AboutPageState extends ConsumerState<AboutPage> {
 
                     //Preson Behind The Code
 
-                    MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      onEnter: (event) => setState(() {
-                        whatAmICurrentlyDoing = true;
-                      }),
-                      onExit: (event) => setState(() {
-                        whatAmICurrentlyDoing = false;
-                      }),
-                      child: Text(
-                        'Person behind the code',
-                        style:
-                            Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  fontSize: Dimensions.mediumTextSize,
-                                  color: whatAmICurrentlyDoing
-                                      ? AppColors().blueColor
-                                      : Theme.of(context)
-                                          .colorScheme
-                                          .onPrimaryContainer,
-                                ),
-                      ),
-                    ),
+                    // MouseRegion(
+                    //   cursor: SystemMouseCursors.click,
+                    //   onEnter: (event) => setState(() {
+                    //     whatAmICurrentlyDoing = true;
+                    //   }),
+                    //   onExit: (event) => setState(() {
+                    //     whatAmICurrentlyDoing = false;
+                    //   }),
+                    //   child: Text(
+                    //     'Person behind the code',
+                    //     style:
+                    //         Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    //               fontSize: Dimensions.mediumTextSize,
+                    //               color: whatAmICurrentlyDoing
+                    //                   ? AppColors().blueColor
+                    //                   : Theme.of(context)
+                    //                       .colorScheme
+                    //                       .onPrimaryContainer,
+                    //             ),
+                    //   ),
+                    // ),
 
-                    const SizedBox(height: 20),
+                    // const SizedBox(height: 20),
 
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width <
-                              Dimensions.mobileWidth + 5
-                          ? MediaQuery.of(context).size.width < 375
-                              ? 350
-                              : 300
-                          : 200,
-                      child: ListView.builder(
-                        itemCount: personBehindTheCode.length,
-                        itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: personBehindTheCode[index],
-                        ),
-                      ),
-                    ),
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.width <
+                    //           Dimensions.mobileWidth + 5
+                    //       ? MediaQuery.of(context).size.width < 375
+                    //           ? 350
+                    //           : 300
+                    //       : 200,
+                    //   child: ListView.builder(
+                    //     itemCount: personBehindTheCode.length,
+                    //     itemBuilder: (context, index) => Padding(
+                    //       padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    //       child: personBehindTheCode[index],
+                    //     ),
+                    //   ),
+                    // ),
 
                     //Currently
 

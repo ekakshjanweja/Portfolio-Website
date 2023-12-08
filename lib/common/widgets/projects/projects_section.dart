@@ -29,11 +29,11 @@ class ProjectsSection extends ConsumerWidget {
             height: 20,
           ),
           Wrap(
-            spacing: 20,
+            spacing: 10,
             children: [
               ProjectCard(
                 name: 'dtu.social',
-                timeline: 'Jan\'23 - Present',
+                timeline: 'Jan\'23 - Sept\'23',
                 onPressed: () {
                   Navigator.of(context).push(
                     PageTransition(
@@ -46,7 +46,7 @@ class ProjectsSection extends ConsumerWidget {
                 heroTag: 'ds',
               ),
               ProjectCard(
-                name: 'Google Docs Clone',
+                name: 'gdocs',
                 timeline: 'Dec\'22',
                 onPressed: () {
                   Navigator.of(context).push(

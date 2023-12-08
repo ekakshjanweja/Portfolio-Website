@@ -2,10 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/services/graphql_config.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
 import 'package:portfolio_website/common/widgets/blog/blog_tile.dart';
+import 'package:portfolio_website/common/widgets/markdown/markdown_widget.dart';
 import 'package:portfolio_website/models/post_model.dart';
 import 'package:portfolio_website/responsive/dimensions.dart';
 
@@ -35,7 +37,7 @@ class BlogMini extends ConsumerWidget {
                   ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
 
             //Titiles
 
@@ -64,15 +66,43 @@ class BlogMini extends ConsumerWidget {
                     physics: const BouncingScrollPhysics(),
                     itemCount: res.length - 1,
                     itemBuilder: (context, index) {
-                      final test = PostModel(
+                      final blog = PostModel(
                         coverImage: res[index]['coverImage'],
                         title: res[index]['title'],
                         contentMarkdown: res[index]['contentMarkdown'],
                       );
 
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        child: BlogTile(post: test),
+                      return Hero(
+                        tag: 'blogpage',
+                        child: GestureDetector(
+                          onTap: () => Navigator.of(context).push(
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: MarkdownView(post: blog),
+                            ),
+                          ),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  blog.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                        fontSize: Dimensions.smallTextSize,
+                                        color: theme == ThemeMode.dark
+                                            ? AppColors().lightBlueColor
+                                            : AppColors().darkBlueColor,
+                                      ),
+                                ),
+                                const SizedBox(height: 5),
+                              ],
+                            ),
+                          ),
+                        ),
                       );
                     },
                   );
