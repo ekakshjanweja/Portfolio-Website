@@ -62,8 +62,7 @@ class _ZuCardState extends ConsumerState<ZuCard> {
 
           //Sub Heading
 
-          Wrap(
-            spacing: 10,
+          Column(
             children: [
               Text(
                 'Flutter Intern',
@@ -101,8 +100,8 @@ class _ZuCardState extends ConsumerState<ZuCard> {
 
           Hero(
             tag: 'zu',
-            child: FilledButton.tonal(
-              onPressed: () {
+            child: GestureDetector(
+              onTap: () {
                 Navigator.of(context).push(
                   PageTransition(
                     type: PageTransitionType.fade,

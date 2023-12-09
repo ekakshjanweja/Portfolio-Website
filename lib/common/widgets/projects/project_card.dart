@@ -33,7 +33,6 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        width: 200,
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
