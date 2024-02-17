@@ -4,8 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/services/graphql_config.dart';
+import 'package:portfolio_website/common/services/graphql_services.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
+// ignore: unused_import
 import 'package:portfolio_website/common/widgets/blog/blog_tile.dart';
 import 'package:portfolio_website/common/widgets/markdown/markdown_widget.dart';
 import 'package:portfolio_website/models/post_model.dart';
@@ -39,72 +41,61 @@ class BlogMini extends ConsumerWidget {
 
             const SizedBox(height: 10),
 
-            //Titiles
+            //Titles
 
-            Query(
-              options: QueryOptions(document: gql("""{
-                                    user(username: "stormej") {
-                                    publication {
-                                posts(page: 0) {
-                                  _id
-                                  cuid
-                                  coverImage
-                                  title
-                                  contentMarkdown
-                                }
-                                    }
-                                    }
-                                  }""")),
-              builder: (result, {fetchMore, refetch}) {
-                if (result.data != null) {
-                  List res = result.data!['user']['publication']['posts'];
+            FutureBuilder(
+              future: ref.watch(getPostsProivder.future),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final data = snapshot.data as List<PostModel>;
 
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    dragStartBehavior: DragStartBehavior.down,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: res.length - 1,
-                    itemBuilder: (context, index) {
-                      final blog = PostModel(
-                        coverImage: res[index]['coverImage'],
-                        title: res[index]['title'],
-                        contentMarkdown: res[index]['contentMarkdown'],
-                      );
+                  return SizedBox(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      primary: false,
+                      dragStartBehavior: DragStartBehavior.down,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        final blog = PostModel(
+                          coverImage: data[index].coverImage,
+                          title: data[index].title,
+                          contentMarkdown: data[index].contentMarkdown,
+                        );
 
-                      return Hero(
-                        tag: 'blogpage',
-                        child: GestureDetector(
-                          onTap: () => Navigator.of(context).push(
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              child: MarkdownView(post: blog),
-                            ),
-                          ),
-                          child: Container(
-                            margin: const EdgeInsets.only(bottom: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  blog.title,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(
-                                        fontSize: Dimensions.smallTextSize,
-                                        color: theme == ThemeMode.dark
-                                            ? AppColors().lightBlueColor
-                                            : AppColors().darkBlueColor,
-                                      ),
+                        return Container(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: Hero(
+                            tag: 'blogpage',
+                            child: GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  child: MarkdownView(post: blog),
                                 ),
-                                const SizedBox(height: 5),
-                              ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    blog.title,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(
+                                          fontSize: Dimensions.smallTextSize,
+                                          color: theme == ThemeMode.dark
+                                              ? AppColors().lightBlueColor
+                                              : AppColors().darkBlueColor,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   );
                 }
                 return const CircularProgressIndicator();

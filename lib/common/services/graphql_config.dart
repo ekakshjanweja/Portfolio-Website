@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class GraphQLConfig {
-  static HttpLink httpLink = HttpLink('https://api.hashnode.com/');
+  static HttpLink httpLink = HttpLink('https://gql.hashnode.com/');
 
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(

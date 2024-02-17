@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio_website/common/services/graphql_config.dart';
+import 'package:portfolio_website/common/services/graphql_services.dart';
 import 'package:portfolio_website/common/theme/app_colors.dart';
 import 'package:portfolio_website/common/utils/providers/providers.dart';
 import 'package:portfolio_website/common/widgets/markdown/markdown_widget.dart';
@@ -91,24 +91,11 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
 
                       //Blog Cards
 
-                      Query(
-                        options: QueryOptions(document: gql("""{
-                                  user(username: "stormej") {
-                                  publication {
-                              posts(page: 0) {
-                                _id
-                                cuid
-                                coverImage
-                                title
-                                contentMarkdown
-                              }
-                                  }
-                                  }
-                                }""")),
-                        builder: (result, {fetchMore, refetch}) {
-                          if (result.data != null) {
-                            List res =
-                                result.data!['user']['publication']['posts'];
+                      FutureBuilder(
+                        future: ref.watch(getPostsProivder.future),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            final data = snapshot.data as List<PostModel>;
 
                             return SizedBox(
                               height: MediaQuery.of(context).size.height * 0.7,
@@ -117,13 +104,13 @@ class _BlogsPageState extends ConsumerState<BlogsPage> {
                                 primary: false,
                                 dragStartBehavior: DragStartBehavior.down,
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: res.length,
+                                itemCount: data.length,
                                 itemBuilder: (context, index) {
                                   final test = PostModel(
-                                    coverImage: res[index]['coverImage'],
-                                    title: res[index]['title'],
-                                    contentMarkdown: res[index]
-                                        ['contentMarkdown'],
+                                    coverImage: data[index].coverImage,
+                                    title: data[index].title,
+                                    contentMarkdown:
+                                        data[index].contentMarkdown,
                                   );
 
                                   return Container(

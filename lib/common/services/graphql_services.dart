@@ -22,15 +22,19 @@ class GraphQLServices {
     try {
       QueryResult result = await client.query(QueryOptions(
         fetchPolicy: FetchPolicy.noCache,
-        document: gql("""{
-  user(username: "stormej") {
-    publication {
-      posts(page: 0) {
-        _id
-        cuid
-        coverImage
-        title
-        contentMarkdown
+        document: gql("""query Publication {
+  publication(host: "stormej.hashnode.dev") {
+    posts(first: 10) {
+      edges {
+        node {
+          title
+          coverImage {
+            url
+          }
+          content {
+            markdown
+          }
+        }
       }
     }
   }
@@ -41,11 +45,7 @@ class GraphQLServices {
         throw Exception(result.exception);
       }
 
-      List? res = result.data?['user']['publication']['posts'];
-
-      if (res == null || res.isEmpty) {
-        return [];
-      }
+      List res = result.data!['publication']['posts']['edges'];
 
       List<PostModel> posts =
           res.map((post) => PostModel.fromMap(post)).toList();

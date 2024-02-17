@@ -41,7 +41,7 @@ class MyApp extends ConsumerWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const SelectionArea(
+      home: const Center(
         child: ResponsiveLayout(
           mobile: MobileHomePage(),
           tablet: TabletHomePage(),

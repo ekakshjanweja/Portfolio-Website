@@ -22,6 +22,7 @@ class _AboutPageState extends ConsumerState<AboutPage> {
 
     //Person Behind The Code
 
+    // ignore: unused_local_variable
     List<Text> personBehindTheCode = [
       //1
 

@@ -21,9 +21,9 @@ class PostModel {
 
   factory PostModel.fromMap(Map<String, dynamic> map) {
     return PostModel(
-      coverImage: map['coverImage'] as String,
-      title: map['title'] as String,
-      contentMarkdown: map['contentMarkdown'] as String,
+      coverImage: map['node']['coverImage']['url'] as String,
+      title: map['node']['title'] as String,
+      contentMarkdown: map['node']['content']['markdown'] as String,
     );
   }
 
