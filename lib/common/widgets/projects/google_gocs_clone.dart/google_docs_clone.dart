@@ -25,156 +25,151 @@ class _GoogleDocsClonePageState extends ConsumerState<GoogleDocsClonePage> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
 
-    return Hero(
-      tag: 'gdc',
-      child: SafeArea(
-        child: SelectionArea(
-          child: Scaffold(
-            body: Container(
-              padding: const EdgeInsets.all(40),
-              alignment: Alignment.center,
-              color: theme == ThemeMode.dark
-                  ? AppColors().containerColor
-                  : AppColors().containerColorLight,
-              child: SizedBox(
-                width: 800,
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context)
-                      .copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          alignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            //Close Button
+    return SafeArea(
+      child: SelectionArea(
+        child: Scaffold(
+          body: Container(
+            padding: const EdgeInsets.all(40),
+            alignment: Alignment.center,
+            color: theme == ThemeMode.dark
+                ? AppColors().containerColor
+                : AppColors().containerColorLight,
+            child: SizedBox(
+              width: 800,
+              child: ScrollConfiguration(
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          //Close Button
 
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondaryContainer,
-                                ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.close,
-                                    size: Dimensions.smallerTextSize,
-                                  ),
-                                ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
                               ),
-                            ),
-
-                            //Heading
-
-                            GestureDetector(
-                              onTap: () => LaunchUrl()
-                                  .launchUrl(Strings.notwhatsappGithub),
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                onEnter: (event) => setState(() {
-                                  isGDC = true;
-                                }),
-                                onExit: (event) => setState(() {
-                                  isGDC = false;
-                                }),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 10, left: 30),
-                                  child: Text(
-                                    'Google Docs Clone',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall!
-                                        .copyWith(
-                                          fontSize: Dimensions.largeTextSize,
-                                          color: isGDC
-                                              ? Colors.blue.shade400
-                                              : Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimaryContainer,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 40),
-
-                        Strings().googleDocsCloneDesc(context, ref),
-
-                        //Button
-
-                        const SizedBox(
-                          height: 40,
-                        ),
-
-                        Wrap(
-                          children: [
-                            //Video
-
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 10, bottom: 10),
-                              child: FilledButton.tonalIcon(
-                                style: FilledButton.styleFrom(
-                                    padding: const EdgeInsets.all(20),
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .tertiaryContainer
-                                        .withOpacity(0.4)),
+                              child: IconButton(
                                 onPressed: () {
-                                  LaunchUrl()
-                                      .launchUrl(Strings.googleDocsVideo);
+                                  Navigator.of(context).pop();
                                 },
                                 icon: const Icon(
-                                  Icons.movie,
+                                  Icons.close,
                                   size: Dimensions.smallerTextSize,
                                 ),
-                                label: const Text('Video'),
                               ),
                             ),
+                          ),
 
-                            //Github
+                          //Heading
 
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: FilledButton.tonalIcon(
-                                style: FilledButton.styleFrom(
-                                    elevation: 0,
-                                    padding: const EdgeInsets.all(20),
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .tertiaryContainer
-                                        .withOpacity(0.4)),
-                                onPressed: () {
-                                  LaunchUrl()
-                                      .launchUrl(Strings.googleDocsGithub);
-                                },
-                                icon: SvgPicture.asset(
-                                  theme == ThemeMode.dark
-                                      ? Assets.logos.githubWhite
-                                      : Assets.logos.githubBlack,
-                                  height: Dimensions.smallerTextSize,
+                          GestureDetector(
+                            onTap: () => LaunchUrl()
+                                .launchUrl(Strings.notwhatsappGithub),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              onEnter: (event) => setState(() {
+                                isGDC = true;
+                              }),
+                              onExit: (event) => setState(() {
+                                isGDC = false;
+                              }),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 10, left: 30),
+                                child: Text(
+                                  'Google Docs Clone',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!
+                                      .copyWith(
+                                        fontSize: Dimensions.largeTextSize,
+                                        color: isGDC
+                                            ? Colors.blue.shade400
+                                            : Theme.of(context)
+                                                .colorScheme
+                                                .onPrimaryContainer,
+                                      ),
                                 ),
-                                label: const Text('GitHub'),
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 40),
+
+                      Strings().googleDocsCloneDesc(context, ref),
+
+                      //Button
+
+                      const SizedBox(
+                        height: 40,
+                      ),
+
+                      Wrap(
+                        children: [
+                          //Video
+
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 10, bottom: 10),
+                            child: FilledButton.tonalIcon(
+                              style: FilledButton.styleFrom(
+                                  padding: const EdgeInsets.all(20),
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .tertiaryContainer
+                                      .withOpacity(0.4)),
+                              onPressed: () {
+                                LaunchUrl().launchUrl(Strings.googleDocsVideo);
+                              },
+                              icon: const Icon(
+                                Icons.movie,
+                                size: Dimensions.smallerTextSize,
+                              ),
+                              label: const Text('Video'),
+                            ),
+                          ),
+
+                          //Github
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: FilledButton.tonalIcon(
+                              style: FilledButton.styleFrom(
+                                  elevation: 0,
+                                  padding: const EdgeInsets.all(20),
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .tertiaryContainer
+                                      .withOpacity(0.4)),
+                              onPressed: () {
+                                LaunchUrl().launchUrl(Strings.googleDocsGithub);
+                              },
+                              icon: SvgPicture.asset(
+                                theme == ThemeMode.dark
+                                    ? Assets.logos.githubWhite
+                                    : Assets.logos.githubBlack,
+                                height: Dimensions.smallerTextSize,
+                              ),
+                              label: const Text('GitHub'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

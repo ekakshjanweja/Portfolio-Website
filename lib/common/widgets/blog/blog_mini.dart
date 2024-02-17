@@ -65,32 +65,29 @@ class BlogMini extends ConsumerWidget {
 
                         return Container(
                           margin: const EdgeInsets.only(bottom: 20),
-                          child: Hero(
-                            tag: 'blogpage',
-                            child: GestureDetector(
-                              onTap: () => Navigator.of(context).push(
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: MarkdownView(post: blog),
+                          child: GestureDetector(
+                            onTap: () => Navigator.of(context).push(
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                child: MarkdownView(post: blog),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  blog.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                        fontSize: Dimensions.smallTextSize,
+                                        color: theme == ThemeMode.dark
+                                            ? AppColors().lightBlueColor
+                                            : AppColors().darkBlueColor,
+                                      ),
                                 ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    blog.title,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(
-                                          fontSize: Dimensions.smallTextSize,
-                                          color: theme == ThemeMode.dark
-                                              ? AppColors().lightBlueColor
-                                              : AppColors().darkBlueColor,
-                                        ),
-                                  ),
-                                ],
-                              ),
+                              ],
                             ),
                           ),
                         );

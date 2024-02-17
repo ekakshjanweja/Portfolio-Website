@@ -22,103 +22,113 @@ class _ZuCardState extends ConsumerState<ZuCard> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
 
-    return Container(
-      padding: const EdgeInsets.all(15),
-      margin: const EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
-        color: theme == ThemeMode.dark
-            ? AppColors().containerColor
-            : AppColors().containerColorLight,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          //Heading
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          PageTransition(
+            type: PageTransitionType.fade,
+            child: const ZuPage(),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        margin: const EdgeInsets.only(bottom: 10),
+        decoration: BoxDecoration(
+          color: theme == ThemeMode.dark
+              ? AppColors().containerColor
+              : AppColors().containerColorLight,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //Heading
 
-          GestureDetector(
-            onTap: () => LaunchUrl().launchUrl(Strings.zu),
-            child: MouseRegion(
-              cursor: SystemMouseCursors.click,
-              onEnter: (event) => setState(() {
-                isZu = true;
-              }),
-              onExit: (event) => setState(() {
-                isZu = false;
-              }),
-              child: Text(
-                'Zu',
-                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: Dimensions.smallTextSize,
-                      color: isZu
-                          ? const Color(0xff8865D9)
-                          : Theme.of(context).colorScheme.onPrimaryContainer,
-                    ),
+            GestureDetector(
+              onTap: () => LaunchUrl().launchUrl(Strings.zu),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                onEnter: (event) => setState(() {
+                  isZu = true;
+                }),
+                onExit: (event) => setState(() {
+                  isZu = false;
+                }),
+                child: Text(
+                  'Zu',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontSize: Dimensions.smallTextSize,
+                        color: isZu
+                            ? const Color(0xff8865D9)
+                            : Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                ),
               ),
             ),
-          ),
 
-          const SizedBox(height: 5),
+            const SizedBox(height: 5),
 
-          //Sub Heading
+            //Sub Heading
 
-          Column(
-            children: [
-              Text(
-                'Flutter Intern',
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontSize: Dimensions.smallerTextSize,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer),
-              ),
-              Text(
-                'Oct\'21 - Jan\'22',
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+            Column(
+              children: [
+                Text(
+                  'Flutter Intern',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       fontSize: Dimensions.smallerTextSize,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onPrimaryContainer
-                          .withOpacity(0.5),
-                    ),
-              ),
-            ],
-          ),
-
-          //Body
-
-          // Text(
-          //   'ZuPay is an investing cum learning app for teenagers. It’s a platform where a teenager can do all sorts of things from learning about investment to actually investing in the market and buying real stocks.',
-          //   style: GoogleFonts.josefinSans(
-          //     fontSize: Dimensions.smallerTextSize,
-          //     fontWeight: FontWeight.w300,
-          //     color: Theme.of(context).colorScheme.onPrimaryContainer,
-          //   ),
-          // ),
-
-          //Button
-
-          const SizedBox(height: 5),
-
-          Hero(
-            tag: 'zu',
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  PageTransition(
-                    type: PageTransitionType.fade,
-                    child: const ZuPage(),
-                  ),
-                );
-              },
-              child: Text(
-                'Show More',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimaryContainer,
-                      fontSize: Dimensions.smallerTextSize,
-                    ),
-              ),
+                      color: Theme.of(context).colorScheme.onPrimaryContainer),
+                ),
+                Text(
+                  'Oct\'21 - Jan\'22',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: Dimensions.smallerTextSize,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimaryContainer
+                            .withOpacity(0.5),
+                      ),
+                ),
+              ],
             ),
-          )
-        ],
+
+            //Body
+
+            // Text(
+            //   'ZuPay is an investing cum learning app for teenagers. It’s a platform where a teenager can do all sorts of things from learning about investment to actually investing in the market and buying real stocks.',
+            //   style: GoogleFonts.josefinSans(
+            //     fontSize: Dimensions.smallerTextSize,
+            //     fontWeight: FontWeight.w300,
+            //     color: Theme.of(context).colorScheme.onPrimaryContainer,
+            //   ),
+            // ),
+
+            //Button
+
+            const SizedBox(height: 5),
+
+            Hero(
+              tag: 'zu',
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const ZuPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Show More',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        fontSize: Dimensions.smallerTextSize,
+                      ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

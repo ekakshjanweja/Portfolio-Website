@@ -14,116 +14,112 @@ class MarkdownView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'blogpage',
-      child: SafeArea(
-        child: Scaffold(
-          body: Center(
-            child: SizedBox(
-              width: 800,
-              child: ScrollConfiguration(
-                behavior:
-                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: 800,
-                        child: Image.network(
-                          post.coverImage,
-                          fit: BoxFit.fitWidth,
-                          alignment: Alignment.bottomCenter,
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 800,
+            child: ScrollConfiguration(
+              behavior:
+                  ScrollConfiguration.of(context).copyWith(scrollbars: false),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: 800,
+                      child: Image.network(
+                        post.coverImage,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.bottomCenter,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 40,
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              Theme.of(context).colorScheme.secondaryContainer,
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            size: Dimensions.largeTextSize,
+                          ),
                         ),
                       ),
+                    ),
 
-                      const SizedBox(
-                        height: 40,
-                      ),
+                    MarkdownWidget(post: post),
 
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondaryContainer,
-                          ),
-                          child: IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Icon(
-                              Icons.close,
-                              size: Dimensions.largeTextSize,
+                    //End
+
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          //Close Button
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back,
+                                  size: Dimensions.smallerTextSize,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
 
-                      MarkdownWidget(post: post),
+                          //Heading
 
-                      //End
-
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            //Close Button
-
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondaryContainer,
-                                ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
-                                    size: Dimensions.smallerTextSize,
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 10, left: 30),
+                            child: Text(
+                              'Head Back',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .copyWith(
+                                    fontSize: Dimensions.largeTextSize,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
                                   ),
-                                ),
-                              ),
                             ),
-
-                            //Heading
-
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 10, left: 30),
-                              child: Text(
-                                'Head Back',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(
-                                      fontSize: Dimensions.largeTextSize,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimaryContainer,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
+                    ),
 
-                      const SizedBox(
-                        height: 80,
-                      ),
+                    const SizedBox(
+                      height: 80,
+                    ),
 
-                      const BottomBar(),
-                    ],
-                  ),
+                    const BottomBar(),
+                  ],
                 ),
               ),
             ),

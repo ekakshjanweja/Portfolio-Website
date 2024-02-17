@@ -25,154 +25,151 @@ class _DtuSocialPageState extends ConsumerState<DtuSocialPage> {
   Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
 
-    return Hero(
-      tag: 'ds',
-      child: SafeArea(
-        child: SelectionArea(
-          child: Scaffold(
-            body: Container(
-              padding: const EdgeInsets.all(40),
-              alignment: Alignment.center,
-              color: theme == ThemeMode.dark
-                  ? AppColors().containerColor
-                  : AppColors().containerColorLight,
-              child: SizedBox(
-                width: 800,
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context)
-                      .copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          alignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            //Close Button
+    return SafeArea(
+      child: SelectionArea(
+        child: Scaffold(
+          body: Container(
+            padding: const EdgeInsets.all(40),
+            alignment: Alignment.center,
+            color: theme == ThemeMode.dark
+                ? AppColors().containerColor
+                : AppColors().containerColorLight,
+            child: SizedBox(
+              width: 800,
+              child: ScrollConfiguration(
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          //Close Button
 
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondaryContainer,
-                                ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.close,
-                                    size: Dimensions.smallerTextSize,
-                                  ),
-                                ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
                               ),
-                            ),
-
-                            //Heading
-
-                            GestureDetector(
-                              onTap: () =>
-                                  LaunchUrl().launchUrl(Strings.dsInsta),
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                onEnter: (event) => setState(() {
-                                  isDS = true;
-                                }),
-                                onExit: (event) => setState(() {
-                                  isDS = false;
-                                }),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 10, left: 30),
-                                  child: Text(
-                                    'dtu.social',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall!
-                                        .copyWith(
-                                          fontSize: Dimensions.largeTextSize,
-                                          color: isDS
-                                              ? const Color(0xff8865D9)
-                                              : Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimaryContainer,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(
-                          width: 800,
-                          child: MD(),
-                        ),
-
-                        //Button
-
-                        const SizedBox(
-                          height: 20,
-                        ),
-
-                        Wrap(
-                          children: [
-                            //Playstore
-
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 10, right: 30),
-                              child: FilledButton.tonalIcon(
-                                style: FilledButton.styleFrom(
-                                    elevation: 0,
-                                    padding: const EdgeInsets.all(20),
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .tertiaryContainer
-                                        .withOpacity(0.4)),
+                              child: IconButton(
                                 onPressed: () {
-                                  //LaunchUrl().launchUrl(Strings.zuPlaystore);
+                                  Navigator.of(context).pop();
                                 },
-                                icon: SvgPicture.asset(
-                                  Assets.logos.playstore,
-                                  height: Dimensions.smallerTextSize,
-                                ),
-                                label: const Text('dtu.social'),
-                              ),
-                            ),
-
-                            //Website
-
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: FilledButton.tonalIcon(
-                                style: FilledButton.styleFrom(
-                                    elevation: 0,
-                                    padding: const EdgeInsets.all(20),
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .tertiaryContainer
-                                        .withOpacity(0.4)),
-                                onPressed: () {
-                                  LaunchUrl().launchUrl(Strings.dsWebsite);
-                                },
-                                icon: const FaIcon(
-                                  FontAwesomeIcons.globe,
+                                icon: const Icon(
+                                  Icons.close,
                                   size: Dimensions.smallerTextSize,
                                 ),
-                                label: const Text('dtu.social'),
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+
+                          //Heading
+
+                          GestureDetector(
+                            onTap: () => LaunchUrl().launchUrl(Strings.dsInsta),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              onEnter: (event) => setState(() {
+                                isDS = true;
+                              }),
+                              onExit: (event) => setState(() {
+                                isDS = false;
+                              }),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 10, left: 30),
+                                child: Text(
+                                  'dtu.social',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!
+                                      .copyWith(
+                                        fontSize: Dimensions.largeTextSize,
+                                        color: isDS
+                                            ? const Color(0xff8865D9)
+                                            : Theme.of(context)
+                                                .colorScheme
+                                                .onPrimaryContainer,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(
+                        width: 800,
+                        child: Strings().dtuSocialDesc(context, ref),
+                      ),
+
+                      //Button
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      Wrap(
+                        children: [
+                          //Playstore
+
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 10, right: 30),
+                            child: FilledButton.tonalIcon(
+                              style: FilledButton.styleFrom(
+                                  elevation: 0,
+                                  padding: const EdgeInsets.all(20),
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .tertiaryContainer
+                                      .withOpacity(0.4)),
+                              onPressed: () {
+                                LaunchUrl()
+                                    .launchUrl(Strings.dtuSocialPlaystore);
+                              },
+                              icon: SvgPicture.asset(
+                                Assets.logos.playstore,
+                                height: Dimensions.smallerTextSize,
+                              ),
+                              label: const Text('dtu.social'),
+                            ),
+                          ),
+
+                          //Website
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: FilledButton.tonalIcon(
+                              style: FilledButton.styleFrom(
+                                  elevation: 0,
+                                  padding: const EdgeInsets.all(20),
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .tertiaryContainer
+                                      .withOpacity(0.4)),
+                              onPressed: () {
+                                LaunchUrl().launchUrl(Strings.dsWebsite);
+                              },
+                              icon: const FaIcon(
+                                FontAwesomeIcons.globe,
+                                size: Dimensions.smallerTextSize,
+                              ),
+                              label: const Text('dtu.social'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -32,6 +32,15 @@ class ProjectsSection extends ConsumerWidget {
             spacing: 10,
             children: [
               ProjectCard(
+                name: 'stormejislive',
+                timeline: 'Feb\'24',
+                onPressed: () {
+                  LaunchUrl().launchUrl(Strings.stormejislive);
+                },
+                hoverColor: Colors.teal,
+                heroTag: 'pw',
+              ),
+              ProjectCard(
                 name: 'dtu.social',
                 timeline: 'Jan\'23 - Sept\'23',
                 onPressed: () {

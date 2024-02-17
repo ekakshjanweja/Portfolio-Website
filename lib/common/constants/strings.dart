@@ -113,20 +113,19 @@ class Strings {
 
   static const portfolio = 'https://stormej.me/#/';
 
+//stormejislive
+
+  static const stormejislive = 'https://live.stormej.me/#/';
+
   //Portfolio Github
 
   static const portfolioGithub =
       'https://github.com/ekakshjanweja/Portfolio-Website';
 
-  //Blog 2
+  //DTU SOCIAL
 
-  static const blogTwo =
-      'https://stormej.hashnode.dev/team-black-box-internship-interview-experience';
-
-  //Blog 1
-
-  static const blogOne =
-      'https://stormej.hashnode.dev/a-simple-comparison-between-flutter-react-native';
+  static const dtuSocialPlaystore =
+      "https://play.google.com/store/apps/details?id=com.app.dtusocial";
 
   //ZU Desc
 
@@ -338,7 +337,7 @@ class Strings {
       TextSpan(
         text: 'NotWhatsapp is my messaging app project built using ',
         style: GoogleFonts.josefinSans(
-          fontSize: Dimensions.mediumTextSize,
+          fontSize: Dimensions.smallerTextSize,
           fontWeight: FontWeight.w300,
           color: Theme.of(context)
               .colorScheme
@@ -349,7 +348,7 @@ class Strings {
           TextSpan(
             text: 'Flutter and Firebase ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -358,7 +357,7 @@ class Strings {
             text:
                 ', specifically firebase_auth for authentication and cloud_firestore for database management. I use ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -370,7 +369,7 @@ class Strings {
           TextSpan(
             text: 'Riverpod for state management ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -378,7 +377,7 @@ class Strings {
           TextSpan(
             text: 'and have implemented ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -391,7 +390,7 @@ class Strings {
             text:
                 'group chat, GIFs, emojis, status updates, video calls, and reply functionality. ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -400,7 +399,7 @@ class Strings {
             text:
                 'I have also integrated GIPHY for GIF support and Agora for video calling capabilities.',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -414,10 +413,29 @@ class Strings {
     );
   }
 
+  //DTU Social Desc
+
+  Text dtuSocialDesc(BuildContext context, WidgetRef ref) {
+    return Text.rich(
+      TextSpan(
+        text:
+            'dtu.social is a project that I made to connect college students which works on a proximity chat functionality. The app uses flutter, firebase, riverpod, MVC architechture, and has a dark mode. The app is available on the playstore and the web. To implement the proximity functionality we used geolocator. ',
+        style: GoogleFonts.josefinSans(
+          fontSize: Dimensions.smallerTextSize,
+          fontWeight: FontWeight.w300,
+          color: Theme.of(context)
+              .colorScheme
+              .onPrimaryContainer
+              .withOpacity(ref.read(themeProvider) == ThemeMode.dark ? 0.6 : 1),
+        ),
+      ),
+    );
+  }
+
   //dtu.social
 
   static const dtuSocial =
-      "### What is DTU.Social?\n[dtu.social](http://DTU.Social) is a platform that connects college students, helping them find like-minded individuals with similar interests and aspirations. It simplifies communication between strangers, fostering meaningful connections and friendships. By joining Dtu.Social, students become part of a vibrant community that enhances their college experience and opens up exciting opportunities for growth.\n";
+      "dtu.social is a platform that connects college students, helping them find like-minded individuals with similar interests and aspirations.";
 
   //dtu.social insta
 
@@ -434,7 +452,7 @@ class Strings {
       TextSpan(
         text: 'I built a Google Docs clone using ',
         style: GoogleFonts.josefinSans(
-          fontSize: Dimensions.mediumTextSize,
+          fontSize: Dimensions.smallerTextSize,
           fontWeight: FontWeight.w300,
           color: Theme.of(context)
               .colorScheme
@@ -445,7 +463,7 @@ class Strings {
           TextSpan(
             text: 'Flutter ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -453,7 +471,7 @@ class Strings {
           TextSpan(
             text: 'for the front-end and',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -465,7 +483,7 @@ class Strings {
           TextSpan(
             text: ' NodeJS, Express & MongoDB ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -473,7 +491,7 @@ class Strings {
           TextSpan(
             text: 'for the back-end. For state management, I used ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -485,7 +503,7 @@ class Strings {
           TextSpan(
             text: 'Riverpod ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
@@ -494,7 +512,7 @@ class Strings {
             text:
                 'and for real-time updates when the document is shared, I utilized ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w300,
               color: Theme.of(context)
                   .colorScheme
@@ -506,7 +524,7 @@ class Strings {
           TextSpan(
             text: 'SocketIO. ',
             style: GoogleFonts.josefinSans(
-              fontSize: Dimensions.mediumTextSize,
+              fontSize: Dimensions.smallerTextSize,
               fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),

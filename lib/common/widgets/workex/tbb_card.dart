@@ -25,9 +25,11 @@ class _TbbCardState extends ConsumerState<TbbCard> {
 
     return GestureDetector(
       onTap: () {
-        PageTransition(
-          type: PageTransitionType.fade,
-          child: const TbbPage(),
+        Navigator.of(context).push(
+          PageTransition(
+            type: PageTransitionType.fade,
+            child: const TbbPage(),
+          ),
         );
       },
       child: Container(
